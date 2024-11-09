@@ -1,14 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collaborative Website</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Welcome to Our Collaborative Project</h1>
-    <p>This is a simple webpage built using GitHub for collaboration.</p>
-</body>
-</html>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio solicitud consultoría de siembra</title>
+  <link rel="stylesheet" href="index_style.css" />
+</head>
+
+<body>
+
+  <div class="container">
+    <form class="form" id="consultoriaForm">
+
+      <h2>SOLICITUD DE CONSULTORÍA DE SIEMBRA</h2>
+
+      <p>Estimado usuario, la solicitud de consultoría de siembra Sune se realizará mediante cinco fases.</p>
+
+      <p>Cada una de las fases corresponde a cinco aspectos clave que el sistema Sune necesita para identificar las
+        semillas más adecuadas a cultivar en su terreno.</p>
+
+      <p>Las tres primeras fases corresponden a las condiciones ambientales de su terreno. La cuarta y quinta fase
+        corresponden a las preferencias que usted tenga acerca del cultivo y el método de obtención de las semillas.</p>
+
+      <p>Por favor presione la casilla para aceptar los términos y condiciones de SIS Sune. Luego presione el botón
+        "Primera fase (condiciones edáficas)" para iniciar su solicitud</p>
+
+      <!-- Checkbox para Términos y Condiciones -->
+      <div style="text-align: center;">
+        <label for="terms">
+          <input type="checkbox" id="terms" name="terms" required>
+          Acepto los <a href="#" id="openModal">términos y condiciones</a>
+        </label>
+      </div>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <button type="submit" class="button">Primera fase (condiciones edáficas)</button>
+      </div>
+
+    </form>
+
+    <div class="info">
+      <img src="images/logo sis sune.png" class="img-1" alt="">
+
+      <div class="location">
+
+        <div class="icons">
+          <img src="images/telefono.png" alt="">
+          <p>3268596210</p>
+        </div>
+
+        <div class="icons">
+          <img src="images/correo.png" alt="">
+          <p>sissunecolombia@gmail.com</p>
+        </div>
+
+        <div class="icons">
+          <img src="images/ubicacion.png" alt="">
+          <p>En tu corazón</p>
+        </div>
+
+      </div>
+
+      <div class="social">
+        <img src="images/instagram.png" alt="">
+        <img src="images/facebook.png" alt="">
+        <img src="images/twitter.png" alt="">
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Modal para Términos y Condiciones -->
+  <div id="termsModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Términos y condiciones</h2>
+
+      <h2 class="titulo">1. Aceptación de los términos</h2>
+      <p class="hola">Al acceder y utilizar nuestro servicio de consultoría de siembra, usted acepta estar sujeto a los
+        siguientes términos y condiciones. Si no está de acuerdo con estos términos, por favor, no utilice nuestro
+        servicio.</p>
+
+      <h2 class="titulo">2. Descripción del servicio</h2>
+      <p class="hola">Nuestro servicio de consultoría de siembra ofrece recomendaciones personalizadas para la selección
+        de semillas y el cultivo, basado en las condiciones específicas de su terreno. Este servicio es proporcionado
+        "tal cual" y sin ninguna garantía de exactitud, idoneidad, o resultados específicos.</p>
+
+      <h2 class="titulo">3. Uso del servicio</h2>
+      <p class="hola">Usted se compromete a utilizar nuestro servicio de manera legal y responsable. No podrá utilizar
+        el servicio para actividades fraudulentas, ilegales, o perjudiciales. Se prohíbe cualquier intento de hackear,
+        dañar, o interrumpir el servicio.</p>
+
+      <h2 class="titulo">4. Privacidad y protección de datos</h2>
+      <p class="hola">Respetamos su privacidad. Toda la información personal que usted proporcione será tratada de
+        acuerdo con nuestra política de privacidad. Nos comprometemos a no compartir sus datos personales con terceros
+        sin su consentimiento, excepto cuando sea requerido por la ley..</p>
+
+      <h2 class="titulo">5. Propiedad intelectual</h2>
+      <p class="hola">Todo el contenido y la tecnología asociados con este servicio, incluyendo textos, gráficos,
+        logotipos, y software, son propiedad de SIS Sune y están protegidos por leyes de propiedad
+        intelectual. No está permitido copiar, modificar, distribuir o usar este contenido sin nuestro permiso expreso.
+      </p>
+
+      <h2 class="titulo">6. Limitación de Responsabilidad</h2>
+      <p class="hola">En la medida en que lo permita la ley, [Nombre de la Empresa] no será responsable por cualquier
+        daño directo, indirecto, incidental, especial o consecuente que resulte del uso o la imposibilidad de uso de
+        nuestro servicio.</p>
+
+      <h2 class="titulo">7. Modificaciones a los términos</h2>
+      <p class="hola">Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Las
+        modificaciones serán efectivas inmediatamente después de su publicación en este sitio. Es su responsabilidad
+        revisar estos términos periódicamente para estar informado de cualquier cambio.</p>
+
+      <h2 class="titulo">8. Terminación del servicio</h2>
+      <p class="hola">Podemos, a nuestra discreción, suspender o terminar su acceso a nuestro servicio en cualquier
+        momento, con o sin motivo, y sin previo aviso. Cualquier actividad sospechosa o ilegal puede ser motivo de
+        terminación inmediata de su cuenta y la notificación a las autoridades competentes..</p>
+
+      <h2 class="titulo">9. Ley Aplicable</h2>
+      <p class="hola">Estos términos y condiciones se rigen por las leyes de Colombia. Cualquier disputa que surja en
+        relación con estos términos será sometida a la jurisdicción exclusiva de los tribunales colombianos.</p>
+
+      <h2 class="titulo">10. Contacto</h2>
+      <p class="hola">Si tiene alguna pregunta o inquietud sobre estos términos, por favor, póngase en contacto con
+        nosotros en sissunecolombia@gmail.com.</p>
+
+
+
+    </div>
+  </div>
+
+  <script>
+    // Script para manejar el modal
+    var modal = document.getElementById("termsModal");
+    var btn = document.getElementById("openModal");
+    var span = document.getElementsByClassName("close")[0];
+
+    // Abrir el modal al hacer clic en "Términos y condiciones"
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+
+    // Cerrar el modal al hacer clic en la "X"
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    // Cerrar el modal si el usuario hace clic fuera de él
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Validar si se aceptaron los términos antes de permitir la redirección
+    document.getElementById('consultoriaForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Evita que el formulario se envíe de manera predeterminada
+      const termsCheckbox = document.getElementById('terms');
+      if (!termsCheckbox.checked) {
+        alert('Debes aceptar los términos y condiciones para continuar.');
+      } else {
+        window.location.href = "edaficas.html";
+      }
+    });
+  </script>
+
+  <style>
+    /* Estilos para el modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+
+</body>
+
+</html>
