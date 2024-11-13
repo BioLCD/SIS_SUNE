@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario condiciones topográficas</title>
+    <link rel="stylesheet" href="top_style.css">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form" id="topograficasForm">
+    
+          <h2>CONDICIONES TOPOGRÁFICAS DEL TERRENO</h2>
+    
+          <p>
+            Estimado usuario, este formulario contiene los campos requeridos que usted debe rellenar sobre las condiciones
+            topográficas de su terreno.
+            Recuerde que todos los datos deben ser valores promedio. Cuando haya respondido todos los campos, por favor presione el botón "Enviar".
+          </p>
+          <p>En caso de no conocer alguna o ninguna de estas variables, presione el botón "Solicitar caracterización topográfica".</p>
+    
+          <label for="latitud">Latitud del terreno (°)</label>
+          <input type="number" id="latitud" class="box" required min="0" max="90" placeholder="Ingrese latitud">
+          <div id="latitud-error" class="error-message">En este campo no puedes escribir texto.</div>
+
+          <label for="longitud">Longitud del terreno (°)</label>
+          <input type="number" id="longitud" class="box" required min="0" max="180" placeholder="Ingrese longitud">
+          <div id="longitud-error" class="error-message">En este campo no puedes escribir texto.</div>
+    
+          <label for="altitud">Altitud del terreno (m.s.n.m)</label>
+          <input type="number" id="altitud" class="box" required min="0" max="9000" placeholder="Ingrese altitud">
+          <div id="altitud-error" class="error-message">En este campo no puedes escribir texto.</div>
+    
+          <label for="area">Área del terreno (m²)</label>
+          <input type="number" id="area" class="box" required min="0" placeholder="Ingrese área">
+          <div id="area-error" class="error-message">En este campo no puedes escribir texto.</div>
+    
+          <label for="pendiente">Pendiente del terreno (°)</label>
+          <input type="number" id="pendiente" class="box" required min="0" placeholder="Ingrese pendiente">
+          <div id="pendiente-error" class="error-message">En este campo no puedes escribir texto.</div>
+
+          <label for="orientacion">Orientación del terreno (norte, sur, oriente, occidente)</label>
+          <input type="text" id="orientacion" class="box" required minlength="3" maxlength="50" placeholder="Ingrese orientación">
+          <div id="orientacion-error" class="error-message">En este campo no puedes escribir números.</div>
+    
+          <label for="convexidad">Convexidad del terreno (°)</label>
+          <input type="number" id="convexidad" class="box" required min="0" placeholder="Ingrese convexidad">
+          <div id="convexidad-error" class="error-message">En este campo no puedes escribir texto.</div>
+
+          <label for="concavidad">Concavidad del terreno (°)</label>
+          <input type="number" id="concavidad" class="box" required min="0" placeholder="Ingrese concavidad">
+          <div id="concavidad-error" class="error-message">En este campo no puedes escribir texto.</div>
+
+          <div style="text-align: center;">
+            <button type="submit" class="button">Enviar</button>
+            <a href="car_top.html" class="button">Solicitar caracterización topográfica</a>
+          </div>
+        </form>
+    
+        <div class="info">
+          <img src="images/logo sis sune.png" class="img-1" alt="">
+    
+          <div class="location">
+    
+            <div class="icons">
+              <img src="images/telefono.png" alt="">
+              <p>3268596210</p>
+            </div>
+    
+            <div class="icons">
+              <img src="images/correo.png" alt="">
+              <p>sissunecolombia@gmail.com</p>
+            </div>
+    
+            <div class="icons">
+              <img src="images/ubicacion.png" alt="">
+              <p>En tu corazón</p>
+            </div>
+    
+          </div>
+    
+          <div class="social">
+            <img src="images/instagram.png" alt="">
+            <img src="images/facebook.png" alt="">
+            <img src="images/twitter.png" alt="">
+    
+          </div>
+    
+        </div>
+    
+      </div>
+    
+    <script>
+      document.getElementById('topograficasForm').addEventListener('input', function(event) {
+        const target = event.target;
+
+        // Mensaje de error para campos de texto
+        if (target.type === 'text') {
+          const errorDiv = document.getElementById(`${target.id}-error`);
+          if (/[0-9]/.test(target.value)) {
+            target.value = target.value.replace(/[0-9]/g, ''); // Eliminar números del valor
+            errorDiv.style.display = 'block'; // Mostrar mensaje de error
+          } else {
+            errorDiv.style.display = 'none'; // Ocultar mensaje de error si no hay números
+          }
+        }
+
+        // Mensaje de error para campos de número
+        if (target.type === 'number') {
+          const errorDiv = document.getElementById(`${target.id}-error`);
+          if (/[a-zA-Z]/.test(target.value)) {
+            target.value = ''; // Limpiar el valor si contiene letras
+            errorDiv.style.display = 'block'; // Mostrar mensaje de error
+          } else {
+            errorDiv.style.display = 'none'; // Ocultar mensaje de error si es válido
+          }
+        }
+      });
+
+      document.getElementById('topograficasForm').addEventListener('submit', function(event) {
+        const form = event.target;
+
+        // Verifica la validez del formulario
+        if (form.checkValidity()) {
+          // Redirige a la URL deseada si el formulario es válido
+          event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+          window.location.href = 'topconf.html';
+        } else {
+          // Prevenir el envío del formulario si hay errores
+          event.preventDefault();
+          alert('Por favor, corrija los errores en el formulario antes de enviarlo.');
+        }
+      });
+    </script>
+</body>
+</html>
+
+
+
