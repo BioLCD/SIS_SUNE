@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Solicitar consultoría de siembra</title>
-  <link rel="stylesheet" href="solicitarconsultoriastyle.css" />
+  <link rel="stylesheet" href="../CSS/solicitarconsultoria_style.css">
 </head>
 
 <body>
@@ -40,23 +40,18 @@
         <button type="submit" class="button">Continuar a primera fase Condiciones edáficas del tereno</button>
       </div>
 
-      <div class="progress-container">
-        <progress id="progressBar" value="0" max="100"></progress>
-        <p id="progressText">0% completado</p>
-      </div>
-
     </form>
 
 
     <div class="info">
-      <img src="assets/IMG/logo sis sune.png" class="img-1" alt="Logo SIS Sune">
+      <img src="../assets/IMG/logosissune.png" class="img-1" alt="Logo SIS Sune">
 
       <div class="location">
 
         <div class="icons">
           <a href="https://wa.me/message/Q6QLO32DTIXOB1" target="_blank">
               <!-- Icono de WhatsApp -->
-              <img src="assets/IMG/whatsapp.png" alt="Whatsapp Icon">
+              <img src="../assets/IMG/whatsapp.png" alt="Whatsapp Icon">
           </a>
           <!-- Número de WhatsApp fuera del enlace -->
           <p>321 3568598</p>
@@ -66,7 +61,7 @@
       <div class="icons">
         <a href="mailto:sissunecolombia@gmail.com?subject=Asunto del correo&body=Escribe tu mensaje aquí">
             <!-- Icono de Gmail -->
-            <img src="assets/IMG/gmail.png" alt="Gmail Icon">
+            <img src="../assets/IMG/gmail.png" alt="Gmail Icon">
         </a>
         <!-- Dirección de Gmail fuera del enlace -->
         <p>sissunecolombia@gmail.com</p>
@@ -77,24 +72,27 @@
       <div class="icons">
         <a href="https://www.instagram.com/sissunecolombia?igsh=a2JldzNwMXg2eTZl" target="_blank">
             <!-- Icono de Instagram -->
-            <img src="assets/IMG/instagram.png" alt="Instagram Icon">
+            <img src="../assets/IMG/instagram.png" alt="Instagram Icon">
         </a>
+        <p>@sissunecolombia</p>
     </div>
 
 
     <div class="icons">
       <a href="https://www.facebook.com/profile.php?id=61568368243077&mibextid=ZbWKwL" target="_blank">
           <!-- Icono de Facebook -->
-          <img src="assets/IMG/facebook.png" alt="Facebook Icon">
+          <img src="../assets/IMG/facebook.png" alt="Facebook Icon">
       </a>
+      <p>fb/sissunecolombia</p>
   </div>
 
 
   <div class="icons">
     <a href="https://x.com/sissunecolombia" target="_blank">
         <!-- Icono de Twitter -->
-        <img src="assets/IMG/twitter.png" alt="Twitter Icon">
+        <img src="../assets/IMG/twitter.png" alt="Twitter Icon">
     </a>
+    <p>x/sissunecolombia</p>
 </div>
 
 
@@ -103,6 +101,10 @@
     </div>
 
   </div>
+
+
+
+  
 
   <!-- Modal para Términos y Condiciones -->
   <div id="termsModal" class="modal">
@@ -162,8 +164,11 @@
     </div>
   </div>
 
-  <script>
-    // Script para manejar el modal
+
+  <script> // Script para manejar el modal de Terminos y Condiciones, crear barra de progreso y validar para redireccion a siguiente pagina
+    
+
+    // 1. Manejar modal de terminos y condiciones
     document.addEventListener("DOMContentLoaded", function () {
       var modal = document.getElementById("termsModal");
       var btn = document.getElementById("openModal");
@@ -187,34 +192,7 @@
       };
 
 
-      // Barra de Progreso
-      var progressBar = document.getElementById("progressBar");
-      var progressText = document.getElementById("progressText");
-
-
-
-  // Cada vez que el usuario cambia de fase (por ejemplo, si el checkbox es seleccionado)
-  document.getElementById('terms').addEventListener('change', function () {
-    let progressValue = 0;
-    if (this.checked) {
-      progressValue = 20; // Primer paso completado
-    } else {
-      progressValue = 0; // No completado
-    }
-
-    // Actualizar el valor de la barra de progreso
-    progressBar.value = progressValue;
-    progressText.textContent = progressValue + "% completado";
-    });
-
-
-
-
-
-
-
-
-      // Validar si se aceptaron los términos antes de permitir la redirección
+      // 3. Validar si se aceptaron los términos antes de permitir la redirección
       document.getElementById('consultoriaForm').addEventListener('submit', function (event) {
       event.preventDefault(); // Evita el envío predeterminado del formulario
       const termsCheckbox = document.getElementById('terms');
@@ -227,6 +205,10 @@
       
     });
   </script>
+
+
+
+
 
 </body>
 

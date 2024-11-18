@@ -98,10 +98,10 @@ label {
     color: white;
     text-align: center;
     text-decoration: none;
-    border-radius: 5px;
     font-size: 18px;
-    border-radius: 25px;
-    width: 100%; /* Make button responsive */
+    border-radius: 25px; /* Borde redondeado */
+    border: none; /* Elimina el borde predeterminado */
+    width: 100%; /* Hacer botón responsivo, el 100% permite que se vea bien en pantallas pequeñas */
 }
 
 .info {
