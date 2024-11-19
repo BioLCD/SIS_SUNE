@@ -79,6 +79,7 @@ border-radius: 5px;
 background-color: #004494;
 }
 
+/* Formulario de Ingreso de Usuario */
 /* Sección de Misión, Visión y Descripción de Servicios */
 section {
 padding: 2em 1em;
@@ -94,7 +95,59 @@ text-align: center;
 padding: 2em 1em;
 border-radius: 5px;
 }
- 
+.mission-vision-services .user-login h2 {
+font-size: 2em;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+color: #054d3b;
+}
+.user-login {
+    background-color: #8fbd4f; /* Light green background */
+    border: 1px solid #ddd; /* Light border */
+    padding: 20px; /* Spacing inside the box */
+    border-radius: 8px; /* Rounded corners */
+    width: 300px; /* Width of the login box */
+    margin: 20px auto; /* Center alignment */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.user-login h2 {
+    text-align: center; /* Centered text */
+    color: #054d3b; /* Dark green text */
+}
+
+.mission-vision-services .user-login form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+.mission-vision-services .user-login label {
+    margin-bottom: 8px; /* Space below each label */
+    color: #2f5200; /* Medium green text */
+}
+
+.mission-vision-services .user-login input {
+    padding: 10px; /* Space inside the input fields */
+    margin-bottom: 16px; /* Space below each input field */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Slightly larger text */
+}
+
+.mission-vision-services .user-login button {
+    padding: 10px; /* Space inside the button */
+    background-color: #8fbd4f; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Slightly larger text */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.mission-vision-services .user-login button:hover {
+    background-color: #2f5200; /* Darker green on hover */
+}
+
 .mission-vision-services .mvs h1 {
 font-size: 2em;
 font-family: Arial, Helvetica, sans-serif;

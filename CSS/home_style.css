@@ -43,6 +43,10 @@ background-color: #8fbd4f;
 color: #054d3b;
 text-align: center;
 padding: 2em 1em;
+border-radius: 5px;
+margin-left: 2em;
+margin-right: 2em;
+margin-bottom: 2em;
 }
 
 .header h1 {
@@ -108,5 +112,7 @@ text-decoration: none;
 margin: 0 0.5em;
 }
 footer .social-links a:hover {
+margin-top: 2em;
+margin-bottom: 2em; 
 text-decoration: underline;
 }
