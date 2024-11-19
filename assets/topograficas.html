@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formulario condiciones topográficas del terreno</title>
+  <title>Formulario condiciones topográficas</title>
   <link rel="stylesheet" href="../CSS/condicionesambientales_style.css" />
   <style>
     .error-message {
@@ -20,63 +20,15 @@
 
 <body>
   <div class="container">
-    <form class="form" id="edaficasForm" novalidate>
+    <form class="form" id="topograficasForm" novalidate>
       <h2>CONDICIONES TOPOGRÁFICAS DEL TERRENO</h2>
 
       <p>
-        Estimado usuario, este formulario contiene los campos requeridos que usted debe rellenar sobre las condiciones
-        topográficas de su terreno.
-        Recuerde que todos los datos deben ser valores promedio. Cuando haya respondido todos los campos, por favor
-        presione el botón "Enviar".
+        Estimado usuario, por favor complete los siguientes campos con la información correspondiente sobre las
+        condiciones topográficas de su terreno. Recuerde que debe ingresar los valores promedio.
+        En caso de no conocer alguna o ninguna de las variables, puede solicitar una caracterización topográfica.
       </p>
-      <p>En caso de no conocer alguna o ninguna de estas variables, presione el botón "Solicitar caracterización
-        topográfica".</p>
 
-      <label for="latitud">Latitud del terreno</label>
-      <input type="text" id="latitud" name="latitud" class="box" required placeholder="Ingrese la latitud en grados"
-        aria-describedby="latitud-error" />
-
-      <label for="hemisferio_latitud">Hemisferio Latitud</label>
-      <select id="hemisferio_latitud" name="hemisferio_latitud" class="box" required
-        aria-describedby="hemisferio_latitud-error">
-        <option value="">Seleccione</option>
-        <option value="Norte">Norte</option>
-        <option value="Sur">Sur</option>
-      </select>
-      <div id="latitud-error" class="error-message">La latitud debe ser un número entre 0 y 90, y seleccionar un
-        hemisferio.</div>
-
-
-
-      <label for="longitud">Longitud del terreno</label>
-      <input type="text" id="longitud" name="longitud" class="box" required placeholder="Ingrese la longitud en grados"
-        aria-describedby="longitud-error" />
-      <label for="hemisferio_longitud">Hemisferio Longitud</label>
-      <select id="hemisferio_longitud" name="hemisferio_longitud" class="box" required
-        aria-describedby="hemisferio_longitud-error">
-        <option value="">Seleccione</option>
-        <option value="Este">Este</option>
-        <option value="Oeste">Oeste</option>
-      </select>
-      <div id="longitud-error" class="error-message">La longitud debe ser un número entre 0 y 180, y seleccionar un
-        hemisferio.</div>
-
-
-
-      <label for="altitud">Altitud del terreno</label>
-      <input type="text" id="altitud" name="altitud" class="box" required placeholder="Ingrese la altitud en metros"
-        aria-describedby="altitud-error" />
-      <div id="altitud-error" class="error-message">La altitud debe ser un número.</div>
-
-      <label for="pendientes">Pendiente del terreno</label>
-      <input type="text" id="pendientes" name="pendientes" class="box" required
-        placeholder="Ingrese pendiente en grados" aria-describedby="pendientes-error" />
-      <div id="pendientes-error" class="error-message">El grado de la pendiente debe ser un número.</div>
-
-      <label for="area">Área del terreno</label>
-      <input type="text" id="area" name="area" class="box" required placeholder="Ingrese el área en metros cuadrados"
-        aria-describedby="area-error" />
-      <div id="area-error" class="error-message">El área debe ser un número.</div>
 
 
       <label for="departamento">Ubicación el terreno</label>
@@ -117,13 +69,65 @@
       <div id="departamento-error" class="error-message">Este campo es obligatorio.</div>
 
 
+      <label for="latitud">Latitud del terreno</label>
+      <input type="text" id="latitud" name="latitud" class="box" required placeholder="Ingrese la latitud en grados"
+        aria-describedby="latitud-error" />
+
+      <label for="hemisferio_latitud">Hemisferio Latitud</label>
+      <select id="hemisferio_latitud" name="hemisferio_latitud" class="box" required
+        aria-describedby="hemisferio_latitud-error">
+        <option value="">Seleccione</option>
+        <option value="Norte">Norte</option>
+        <option value="Sur">Sur</option>
+      </select>
+      <div id="latitud-error" class="error-message">La latitud debe ser un número entre 0 y 90. También debe seleccionar
+        un
+        hemisferio.</div>
+
+
+      <label for="longitud">Longitud del terreno</label>
+      <input type="text" id="longitud" name="longitud" class="box" required placeholder="Ingrese la longitud en grados"
+        aria-describedby="longitud-error" />
+      <label for="hemisferio_longitud">Hemisferio Longitud</label>
+      <select id="hemisferio_longitud" name="hemisferio_longitud" class="box" required
+        aria-describedby="hemisferio_longitud-error">
+        <option value="">Seleccione</option>
+        <option value="Este">Este</option>
+        <option value="Oeste">Oeste</option>
+      </select>
+      <div id="longitud-error" class="error-message">La longitud debe ser un número entre 0 y 180. También debe
+        seleccionar un
+        hemisferio.</div>
+
+
+      <label for="altitud">Altitud del terreno</label>
+      <input type="text" id="altitud" name="altitud" class="box" required placeholder="Ingrese la altitud en metros"
+        aria-describedby="altitud-error" />
+      <div id="altitud-error" class="error-message">La altitud debe ser un número.</div>
+
+      <label for="pendientes">Pendiente del terreno</label>
+      <input type="text" id="pendientes" name="pendientes" class="box" required
+        placeholder="Ingrese pendiente en grados" aria-describedby="pendientes-error" />
+      <div id="pendientes-error" class="error-message">El grado de la pendiente debe ser un número.</div>
+
+      <label for="area">Área del terreno</label>
+      <input type="text" id="area" name="area" class="box" required placeholder="Ingrese el área en metros cuadrados"
+        aria-describedby="area-error" />
+      <div id="area-error" class="error-message">El área debe ser un número.</div>
+
+
+
       <div style="text-align: center;">
-        <button type="submit" class="button" onclick="window.location.href='car_ed.html';">Enviar</button>
+        <button type="submit" class="button">Guardar y continuar</button>
         <button type="button" class="button" onclick="window.location.href='confirmacionsolicitud.html';">Solicitar
-          caracterización del terreno</button>
+          caracterización topográfica</button>
       </div>
 
     </form>
+
+
+
+
 
     <div class="info">
       <img src="../assets/IMG/logosissune.png" class="img-1" alt="Logo SIS Sune">
@@ -212,6 +216,25 @@
         document.getElementById('area-error').style.display = 'block';
       } else {
         document.getElementById('area-error').style.display = 'none';
+      }
+    });
+
+
+
+
+    // Esta parte es para que el boton Enviar solo esté habilitado si TODOS los campos estan completamente rellenados
+    document.getElementById('topograficasForm').addEventListener('submit', function (event) {
+      const form = event.target;
+
+      // Verifica la validez del formulario
+      if (form.checkValidity()) {
+        // Redirige a la URL deseada si el formulario es válido
+        event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+        window.location.href = 'topograficas.html';
+      } else {
+        // Prevenir el envío del formulario si hay errores
+        event.preventDefault();
+        alert('Por favor, rellene todos los campos del formulario para poder continuar.');
       }
     });
 

@@ -27,13 +27,10 @@
       <h2>CONDICIONES EDÁFICAS DEL TERRENO</h2>
 
       <p>
-        Estimado usuario, este formulario contiene los campos requeridos que usted debe rellenar sobre las condiciones
-        edáficas de su terreno.
-        Recuerde que todos los datos deben ser valores promedio. Cuando haya respondido todos los campos, por favor
-        presione el botón "Enviar".
+        Estimado usuario, por favor complete los siguientes campos con la información correspondiente sobre las
+        condiciones edáficas de su terreno. Recuerde que debe ingresar los valores promedio.
+        En caso de no conocer alguna o ninguna de las variables, puede solicitar una caracterización edáfica.
       </p>
-      <p>En caso de no conocer alguna o ninguna de estas variables, presione el botón "Solicitar caracterización
-        edáfica".</p>
 
       <label for="ph">pH</label>
       <input type="text" id="ph" name="ph" class="box" required placeholder="Ingrese el pH"
@@ -83,7 +80,7 @@
       <div id="fauna_edafica-error" class="error-message">La fauna edáfica no debe contener números.</div>
 
       <div style="text-align: center;"> <!-- Clase button con estilo para hacer los botones que necesitemos -->
-        <button type="submit" class="button" onclick="window.location.href='car_ed.html';">Enviar</button>
+        <button type="submit" class="button">Guardar y continuar</button>
         <button type="button" class="button" onclick="window.location.href='confirmacionsolicitud.html';">Solicitar
           caracterización edáfica</button>
       </div>
@@ -156,7 +153,7 @@
       const value = input.value;
       const errorDiv = document.getElementById(input.id + '-error');
 
-    // Validación de letras y caracteres no numéricos
+      // Validación de letras y caracteres no numéricos
       if (/[^0-9.]/.test(value)) {
         input.value = value.replace(/[^0-9.]/g, ''); // Eliminar caracteres no numéricos
         errorDiv.textContent = "Solo se permiten números y puntos.";
@@ -236,7 +233,29 @@
         document.getElementById('fauna_edafica-error').style.display = 'none';
       }
     });
+
+
+
+    // Esta parte es para que el boton Enviar solo esté habilitado si TODOS los campos estan completamente rellenados
+    document.getElementById('edaficasForm').addEventListener('submit', function (event) {
+      const form = event.target;
+
+      // Verifica la validez del formulario
+      if (form.checkValidity()) {
+        // Redirige a la URL deseada si el formulario es válido
+        event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+        window.location.href = 'topograficas.html';
+      } else {
+        // Prevenir el envío del formulario si hay errores
+        event.preventDefault();
+        alert('Por favor, rellene todos los campos del formulario para poder continuar.');
+      }
+    });
+
+
+
   </script>
 
 </body>
+
 </html>

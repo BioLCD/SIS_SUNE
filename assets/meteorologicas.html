@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario condiciones meteorológicas</title>
+  <link rel="stylesheet" href="../CSS/condicionesambientales_style.css" />
+  <style>
+    .error-message {
+      color: red;
+      font-size: 0.85em;
+      display: none;
+      margin-top: 0;
+      margin-bottom: 0.3em;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="container">
+    <form class="form" id="meteorologicasForm" novalidate>
+      <h2>CONDICIONES METEOROLÓGICAS DEL TERRENO</h2>
+
+      <p>
+        Estimado usuario, por favor complete los siguientes campos con la información correspondiente sobre las
+        condiciones meteorológicas de su terreno. Recuerde que debe ingresar los valores promedio.
+        En caso de no conocer alguna o ninguna de las variables, puede solicitar una caracterización meteorológica.
+      </p>
+
+      <!-- Radiación solar -->
+      <label for="radiacion">Radiación solar (%)</label>
+      <input type="text" id="radiacion" name="radiacion" class="box" required placeholder="Ingrese la radiación solar"
+        aria-describedby="radiacion-error" />
+      <div id="radiacion-error" class="error-message">La radiación debe ser un número entre 0 y 100.</div>
+
+      <!-- Nubosidad -->
+      <label for="nubosidad">Nubosidad (%)</label>
+      <input type="text" id="nubosidad" name="nubosidad" class="box" required placeholder="Ingrese la nubosidad"
+        aria-describedby="nubosidad-error" />
+      <div id="nubosidad-error" class="error-message">La nubosidad debe ser un número entre 0 y 100.</div>
+
+      <!-- Humedad relativa -->
+      <label for="humedad">Humedad relativa (%)</label>
+      <input type="text" id="humedad" name="humedad" class="box" required placeholder="Ingrese la humedad relativa"
+        aria-describedby="humedad-error" />
+      <div id="humedad-error" class="error-message">La humedad debe ser un número entre 0 y 100.</div>
+
+      <!-- Presión atmosférica -->
+      <label for="atmosfera">Presión atmosférica (hPA)</label>
+      <input type="text" id="atmosfera" name="atmosfera" class="box" required
+        placeholder="Ingrese la presión atmosférica" aria-describedby="atmosfera-error" />
+      <div id="atmosfera-error" class="error-message">La presión atmosférica debe ser un número válido.</div>
+
+      <!-- Velocidad del viento -->
+      <label for="velocidad_viento">Velocidad del viento (m/s)</label>
+      <input type="text" id="velocidad_viento" name="velocidad_viento" class="box" required
+        placeholder="Ingrese la velocidad del viento" aria-describedby="velocidad_viento-error" />
+      <div id="velocidad_viento-error" class="error-message">La velocidad del viento debe ser un número.</div>
+
+      <!-- Precipitación -->
+      <label for="precipitacion">Precipitación (mm)</label>
+      <input type="text" id="precipitacion" name="precipitacion" class="box" required
+        placeholder="Ingrese la precipitación" aria-describedby="precipitacion-error" />
+      <div id="precipitacion-error" class="error-message">La precipitación debe ser un número.</div>
+
+      <!-- Temperatura -->
+      <label for="temperatura">Temperatura (°C)</label>
+      <input type="text" id="temperatura" name="temperatura" class="box" required placeholder="Ingrese la temperatura"
+        aria-describedby="temperatura-error" />
+      <div id="temperatura-error" class="error-message">La temperatura debe ser un número.</div>
+
+      <!-- Sensación térmica -->
+      <label for="sensacion_termica">Sensación térmica (°C)</label>
+      <input type="text" id="sensacion_termica" name="sensacion_termica" class="box" required
+        placeholder="Ingrese la sensación térmica" aria-describedby="sensacion_termica-error" />
+      <div id="sensacion_termica-error" class="error-message">La sensación térmica debe ser un número.</div>
+
+
+      <div style="text-align: center;">
+        <button type="submit" class="button">Guardar y continuar</button>
+        <button type="button" class="button" onclick="window.location.href='confirmacionsolicitud.html';">Solicitar
+          caracterización meteorológica</button>
+      </div>
+
+    </form>
+
+
+
+
+
+
+
+
+    <div class="info">
+      <img src="../assets/IMG/logosissune.png" class="img-1" alt="Logo SIS Sune">
+
+      <div class="location">
+        <div class="icons">
+          <a href="https://wa.me/message/Q6QLO32DTIXOB1" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/IMG/whatsapp.png" alt="Whatsapp Icon">
+          </a>
+          <p>321 3568598</p>
+        </div>
+
+        <div class="icons">
+          <a href="mailto:sissunecolombia@gmail.com?subject=Asunto del correo&body=Escribe tu mensaje aquí">
+            <img src="../assets/IMG/gmail.png" alt="Gmail Icon">
+          </a>
+          <p>sissunecolombia@gmail.com</p>
+        </div>
+
+        <div class="icons">
+          <a href="https://www.instagram.com/sissunecolombia?igsh=a2JldzNwMXg2eTZl" target="_blank"
+            rel="noopener noreferrer">
+            <img src="../assets/IMG/instagram.png" alt="Instagram Icon">
+          </a>
+          <p>@sissunecolombia</p>
+        </div>
+
+        <div class="icons">
+          <a href="https://www.facebook.com/profile.php?id=61568368243077&mibextid=ZbWKwL" target="_blank">
+            <img src="../assets/IMG/facebook.png" alt="Facebook Icon">
+          </a>
+          <p>fb/sissunecolombia</p>
+        </div>
+
+        <div class="icons">
+          <a href="https://x.com/sissunecolombia" target="_blank">
+            <img src="../assets/IMG/twitter.png" alt="Twitter Icon">
+          </a>
+          <p>x/sissunecolombia</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+
+
+    document.getElementById('meteorologicasForm').addEventListener('input', function (event) {
+      const target = event.target;
+
+      // Mensaje de error para campos de texto que deben ser números
+      if (target.type === 'text') {
+        const errorDiv = document.getElementById(`${target.id}-error`);
+        if (!/^\d*\.?\d*$/.test(target.value)) { // Verifica que solo sea un número
+          errorDiv.style.display = 'block'; // Mostrar mensaje de error
+        } else {
+          errorDiv.style.display = 'none'; // Ocultar mensaje de error si es válido
+        }
+      }
+    });
+
+
+
+
+    // Esta parte es para que el boton Enviar solo esté habilitado si TODOS los campos estan completamente rellenados
+    document.getElementById('meteorologicasForm').addEventListener('submit', function (event) {
+      const form = event.target;
+
+      // Verifica la validez del formulario
+      if (form.checkValidity()) {
+        // Redirige a la URL deseada si el formulario es válido
+        event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+        window.location.href = 'topograficas.html';
+      } else {
+        // Prevenir el envío del formulario si hay errores
+        event.preventDefault();
+        alert('Por favor, rellene todos los campos del formulario para poder continuar.');
+      }
+    });
+
+  </script>
+</body>
+
+</html>
