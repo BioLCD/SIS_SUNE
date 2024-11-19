@@ -15,7 +15,7 @@ nav {
 background-color: white;
 color: #054d3b;
 padding: 1em;
-     display: flex;
+display: flex;
 justify-content: space-between;
 align-items: center;
 }
@@ -76,17 +76,40 @@ border-radius: 5px;
 background-color: #004494;
 }
 
-/* Contenido principal */
-main {
+/* Sección de Misión, Visión y Descripción de Servicios */
+section {
 padding: 2em 1em;
 flex: 1;
-}
-.intro,
-.services {
 max-width: 800px;
 margin: auto;
 text-align: center;
 margin-bottom: 2em;
+margin-top: 2em;
+background-color: #e1fcbb;
+color: #054d3b;
+text-align: center;
+padding: 2em 1em;
+border-radius: 5px;
+}
+ 
+.mission-vision-services .mvs h1 {
+font-size: 2em;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+}
+.mvs p {
+margin-top: 0.5em;
+font-family:  Arial, Helvetica, sans-serif;
+font-weight: bold;
+}
+
+.mission-vision-services img{
+width: 500px; /* the height will scale proportionally */
+align-items: center;
+display: inline-block;
+margin-bottom: 2em;
+margin-top: 1em;
+border-radius: 5px;
 }
 
 .services .service {
