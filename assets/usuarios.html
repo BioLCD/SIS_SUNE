@@ -25,7 +25,7 @@
  <p>Conoce más de SIS Sune abajo</p>
  <img src="./IMG/logosissune2.png" alt="Logotipo SIS Sune">
  <div class="usersbutton">
- <a href="./assets/registro.html" class="btn">¡Regístrate si no tienes usuario!</a>
+ <a href="./nuevousuario.html" class="btn">¡Regístrate si no tienes usuario!</a>
  </div>
 </header>
 
@@ -39,7 +39,11 @@
   <label for="userPassword">Contraseña:</label>
   <input type="password" id="userPassword" name="userPassword" required>
   <button type="submit">Ingresar</button> </form> 
+  <button type="button" onclick="saveUserInfo()">Save</button> 
+  <button type="button" onclick="retrieveUserInfo()">Retrieve</button>
  </div>
+
+ <script src="script.js"></script>
 
  <div class="mvs"> 
   <h2>Descripción de tipos de usuarios SIS Sune</h2> 
