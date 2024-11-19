@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario condiciones topográficas del terreno</title>
+  <link rel="stylesheet" href="../CSS/condicionesambientales_style.css" />
+  <style>
+    .error-message {
+      color: red;
+      font-size: 0.85em;
+      display: none;
+      margin-top: 0;
+      margin-bottom: 0.3em;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <form class="form" id="edaficasForm" novalidate>
+      <h2>CONDICIONES TOPOGRÁFICAS DEL TERRENO</h2>
+
+      <p>
+        Estimado usuario, este formulario contiene los campos requeridos que usted debe rellenar sobre las condiciones
+        topográficas de su terreno.
+        Recuerde que todos los datos deben ser valores promedio. Cuando haya respondido todos los campos, por favor
+        presione el botón "Enviar".
+      </p>
+      <p>En caso de no conocer alguna o ninguna de estas variables, presione el botón "Solicitar caracterización
+        topográfica".</p>
+
+      <label for="latitud">Latitud del terreno</label>
+      <input type="text" id="latitud" name="latitud" class="box" required placeholder="Ingrese la latitud en grados"
+        aria-describedby="latitud-error" />
+
+      <label for="hemisferio_latitud">Hemisferio Latitud</label>
+      <select id="hemisferio_latitud" name="hemisferio_latitud" class="box" required
+        aria-describedby="hemisferio_latitud-error">
+        <option value="">Seleccione</option>
+        <option value="Norte">Norte</option>
+        <option value="Sur">Sur</option>
+      </select>
+      <div id="latitud-error" class="error-message">La latitud debe ser un número entre 0 y 90, y seleccionar un
+        hemisferio.</div>
+
+
+
+      <label for="longitud">Longitud del terreno</label>
+      <input type="text" id="longitud" name="longitud" class="box" required placeholder="Ingrese la longitud en grados"
+        aria-describedby="longitud-error" />
+      <label for="hemisferio_longitud">Hemisferio Longitud</label>
+      <select id="hemisferio_longitud" name="hemisferio_longitud" class="box" required
+        aria-describedby="hemisferio_longitud-error">
+        <option value="">Seleccione</option>
+        <option value="Este">Este</option>
+        <option value="Oeste">Oeste</option>
+      </select>
+      <div id="longitud-error" class="error-message">La longitud debe ser un número entre 0 y 180, y seleccionar un
+        hemisferio.</div>
+
+
+
+      <label for="altitud">Altitud del terreno</label>
+      <input type="text" id="altitud" name="altitud" class="box" required placeholder="Ingrese la altitud en metros"
+        aria-describedby="altitud-error" />
+      <div id="altitud-error" class="error-message">La altitud debe ser un número.</div>
+
+      <label for="pendientes">Pendiente del terreno</label>
+      <input type="text" id="pendientes" name="pendientes" class="box" required
+        placeholder="Ingrese pendiente en grados" aria-describedby="pendientes-error" />
+      <div id="pendientes-error" class="error-message">El grado de la pendiente debe ser un número.</div>
+
+      <label for="area">Área del terreno</label>
+      <input type="text" id="area" name="area" class="box" required placeholder="Ingrese el área en metros cuadrados"
+        aria-describedby="area-error" />
+      <div id="area-error" class="error-message">El área debe ser un número.</div>
+
+
+      <label for="departamento">Ubicación el terreno</label>
+      <select id="departamento" name="departamento" class="box" required aria-describedby="departamento-error">
+        <option value="" disabled selected>Seleccione un departamento</option>
+        <option value="Bogotá">Bogotá</option>
+        <option value="Antioquia">Antioquia</option>
+        <option value="Atlántico">Atlántico</option>
+        <option value="Bolívar">Bolívar</option>
+        <option value="Boyacá">Boyacá</option>
+        <option value="Caldas">Caldas</option>
+        <option value="Caquetá">Caquetá</option>
+        <option value="Casanare">Casanare</option>
+        <option value="Cauca">Cauca</option>
+        <option value="Cesar">Cesar</option>
+        <option value="Chocó">Chocó</option>
+        <option value="Córdoba">Córdoba</option>
+        <option value="Cundinamarca">Cundinamarca</option>
+        <option value="Guainía">Guainía</option>
+        <option value="Guaviare">Guaviare</option>
+        <option value="Huila">Huila</option>
+        <option value="La Guajira">La Guajira</option>
+        <option value="Magdalena">Magdalena</option>
+        <option value="Meta">Meta</option>
+        <option value="Nariño">Nariño</option>
+        <option value="Norte de Santander">Norte de Santander</option>
+        <option value="Putumayo">Putumayo</option>
+        <option value="Quindío">Quindío</option>
+        <option value="Risaralda">Risaralda</option>
+        <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+        <option value="Santander">Santander</option>
+        <option value="Sucre">Sucre</option>
+        <option value="Tolima">Tolima</option>
+        <option value="Valle del Cauca">Valle del Cauca</option>
+        <option value="Vaupés">Vaupés</option>
+        <option value="Vichada">Vichada</option>
+      </select>
+      <div id="departamento-error" class="error-message">Este campo es obligatorio.</div>
+
+
+      <div style="text-align: center;">
+        <button type="submit" class="button" onclick="window.location.href='car_ed.html';">Enviar</button>
+        <button type="button" class="button" onclick="window.location.href='confirmacionsolicitud.html';">Solicitar
+          caracterización del terreno</button>
+      </div>
+
+    </form>
+
+    <div class="info">
+      <img src="../assets/IMG/logosissune.png" class="img-1" alt="Logo SIS Sune">
+
+      <div class="location">
+        <div class="icons">
+          <a href="https://wa.me/message/Q6QLO32DTIXOB1" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/IMG/whatsapp.png" alt="Whatsapp Icon">
+          </a>
+          <p>321 3568598</p>
+        </div>
+
+        <div class="icons">
+          <a href="mailto:sissunecolombia@gmail.com?subject=Asunto del correo&body=Escribe tu mensaje aquí">
+            <img src="../assets/IMG/gmail.png" alt="Gmail Icon">
+          </a>
+          <p>sissunecolombia@gmail.com</p>
+        </div>
+
+        <div class="icons">
+          <a href="https://www.instagram.com/sissunecolombia?igsh=a2JldzNwMXg2eTZl" target="_blank"
+            rel="noopener noreferrer">
+            <img src="../assets/IMG/instagram.png" alt="Instagram Icon">
+          </a>
+          <p>@sissunecolombia</p>
+        </div>
+
+        <div class="icons">
+          <a href="https://www.facebook.com/profile.php?id=61568368243077&mibextid=ZbWKwL" target="_blank">
+            <img src="../assets/IMG/facebook.png" alt="Facebook Icon">
+          </a>
+          <p>fb/sissunecolombia</p>
+        </div>
+
+        <div class="icons">
+          <a href="https://x.com/sissunecolombia" target="_blank">
+            <img src="../assets/IMG/twitter.png" alt="Twitter Icon">
+          </a>
+          <p>x/sissunecolombia</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Funciones de validación
+    function validateNumber(event, min, max, errorDiv) {
+      const input = event.target;
+      const value = parseFloat(input.value);
+      if (isNaN(value) || value < min || value > max) {
+        input.value = '';
+        errorDiv.style.display = 'block';
+      } else {
+        errorDiv.style.display = 'none';
+      }
+    }
+
+    // Asignar la validación a los campos
+    document.getElementById('latitud').addEventListener('input', function (event) {
+      validateNumber(event, 0, 90, document.getElementById('latitud-error'));
+    });
+
+    document.getElementById('longitud').addEventListener('input', function (event) {
+      validateNumber(event, 0, 180, document.getElementById('longitud-error'));
+    });
+
+    document.getElementById('altitud').addEventListener('input', function (event) {
+      validateNumber(event, 0, Infinity, document.getElementById('altitud-error'));
+    });
+
+    document.getElementById('pendientes').addEventListener('input', function (event) {
+      const value = event.target.value;
+      if (/[^0-9.]/.test(value)) {
+        event.target.value = value.replace(/[^0-9.]/g, '');
+        document.getElementById('pendientes-error').style.display = 'block';
+      } else {
+        document.getElementById('pendientes-error').style.display = 'none';
+      }
+    });
+
+    document.getElementById('area').addEventListener('input', function (event) {
+      const value = event.target.value;
+      if (/[^0-9.]/.test(value)) {
+        event.target.value = value.replace(/[^0-9.]/g, '');
+        document.getElementById('area-error').style.display = 'block';
+      } else {
+        document.getElementById('area-error').style.display = 'none';
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>

@@ -5,95 +5,99 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulario condiciones edáficas</title>
-  <link rel="stylesheet" href="../CSS/edaficas_style.css" />
+  <link rel="stylesheet" href="../CSS/condicionesambientales_style.css" />
   <style>
-.error-message {
-  color: red;
-  font-size: 0.85em;
-  display: none;
-  margin-top: 0; /* Reduce el margen superior */
-  margin-bottom: 0.3em; /* Ajuste para mayor proximidad */
-  line-height: 1.2; /* Asegura que el texto no quede demasiado separado */
-}
+    .error-message {
+      color: red;
+      font-size: 0.85em;
+      display: none;
+      margin-top: 0;
+      /* Reduce el margen superior */
+      margin-bottom: 0.3em;
+      /* Ajuste para mayor proximidad */
+      line-height: 1.2;
+      /* Asegura que el texto no quede demasiado separado */
+    }
   </style>
-
-  
 </head>
 
 <body>
-  <div class="container">
-    <form class="form" id="edaficasForm" novalidate>
+  <div class="container"> <!-- Empieza la clase container -->
+    <form class="form" id="edaficasForm" novalidate> <!-- Empieza la clase form -->
       <h2>CONDICIONES EDÁFICAS DEL TERRENO</h2>
 
       <p>
         Estimado usuario, este formulario contiene los campos requeridos que usted debe rellenar sobre las condiciones
         edáficas de su terreno.
-        Recuerde que todos los datos deben ser valores promedio. Cuando haya respondido todos los campos, por favor presione el botón "Enviar".
+        Recuerde que todos los datos deben ser valores promedio. Cuando haya respondido todos los campos, por favor
+        presione el botón "Enviar".
       </p>
-      <p>En caso de no conocer alguna o ninguna de estas variables, presione el botón "Solicitar caracterización edáfica".</p>
+      <p>En caso de no conocer alguna o ninguna de estas variables, presione el botón "Solicitar caracterización
+        edáfica".</p>
 
       <label for="ph">pH</label>
-      <input 
-        type="text" 
-        id="ph" 
-        name="ph" 
-        class="box" 
-        required 
-        placeholder="Ingrese el pH" 
-        aria-describedby="ph-error"
-      />
+      <input type="text" id="ph" name="ph" class="box" required placeholder="Ingrese el pH"
+        aria-describedby="ph-error" />
       <div id="ph-error" class="error-message">El pH debe estar entre 0 y 14.</div>
-      <div id="ph-error-general" class="error-message">El pH debe ser un número entre 0 y 14. No se permiten letras.</div>
+      <div id="ph-error-general" class="error-message">El pH debe ser un número entre 0 y 14. No se permiten letras.
+      </div>
 
       <label for="contenido_agua">Contenido volumétrico de agua (%)</label>
-      <input type="text" id="contenido_agua" name="contenido_agua" class="box" required placeholder="Ingrese el contenido de agua" aria-describedby="contenido_agua-error">
+      <input type="text" id="contenido_agua" name="contenido_agua" class="box" required
+        placeholder="Ingrese el contenido de agua" aria-describedby="contenido_agua-error">
       <div id="contenido_agua-error" class="error-message">Solo se permiten números y puntos.</div>
 
       <label for="capa_organica">Capa orgánica (%)</label>
-      <input type="text" id="capa_organica" name="capa_organica" class="box" required placeholder="Ingrese la capa orgánica" aria-describedby="capa_organica-error">
+      <input type="text" id="capa_organica" name="capa_organica" class="box" required
+        placeholder="Ingrese la capa orgánica" aria-describedby="capa_organica-error">
       <div id="capa_organica-error" class="error-message">Solo se permiten números y puntos.</div>
 
       <label for="porosidad">Porosidad (%)</label>
-      <input type="text" id="porosidad" name="porosidad" class="box" required placeholder="Ingrese la porosidad" aria-describedby="porosidad-error">
+      <input type="text" id="porosidad" name="porosidad" class="box" required placeholder="Ingrese la porosidad"
+        aria-describedby="porosidad-error">
       <div id="porosidad-error" class="error-message">Solo se permiten números y puntos.</div>
 
       <label for="textura">Textura</label>
-      <input type="text" id="textura" name="textura" class="box" required minlength="3" maxlength="100" placeholder="Ingrese la textura" aria-describedby="textura-error">
+      <input type="text" id="textura" name="textura" class="box" required minlength="3" maxlength="100"
+        placeholder="Ingrese la textura" aria-describedby="textura-error">
       <div id="textura-error" class="error-message">La textura no debe contener números.</div>
 
       <label for="nivel_freatico">Nivel freático</label>
-      <input type="text" id="nivel_freatico" name="nivel_freatico" class="box" required minlength="3" maxlength="100" placeholder="Ingrese el nivel freático" aria-describedby="nivel_freatico-error">
+      <input type="text" id="nivel_freatico" name="nivel_freatico" class="box" required minlength="3" maxlength="100"
+        placeholder="Ingrese el nivel freático" aria-describedby="nivel_freatico-error">
       <div id="nivel_freatico-error" class="error-message">El nivel freático no debe contener números.</div>
 
       <label for="color">Color</label>
-      <input type="text" id="color" name="color" class="box" required minlength="3" maxlength="100" placeholder="Ingrese el color" aria-describedby="color-error">
+      <input type="text" id="color" name="color" class="box" required minlength="3" maxlength="100"
+        placeholder="Ingrese el color" aria-describedby="color-error">
       <div id="color-error" class="error-message">El color no debe contener números.</div>
 
       <label for="microbiota">Microbiota</label>
-      <input type="text" id="microbiota" name="microbiota" class="box" required minlength="3" maxlength="100" placeholder="Ingrese la microbiota" aria-describedby="microbiota-error">
+      <input type="text" id="microbiota" name="microbiota" class="box" required minlength="3" maxlength="100"
+        placeholder="Ingrese la microbiota" aria-describedby="microbiota-error">
       <div id="microbiota-error" class="error-message">La microbiota no debe contener números.</div>
 
       <label for="fauna_edafica">Fauna edáfica</label>
-      <input type="text" id="fauna_edafica" name="fauna_edafica" class="box" required minlength="3" maxlength="100" placeholder="Ingrese la fauna edáfica" aria-describedby="fauna_edafica-error">
+      <input type="text" id="fauna_edafica" name="fauna_edafica" class="box" required minlength="3" maxlength="100"
+        placeholder="Ingrese la fauna edáfica" aria-describedby="fauna_edafica-error">
       <div id="fauna_edafica-error" class="error-message">La fauna edáfica no debe contener números.</div>
 
-      <div style="text-align: center;">
+      <div style="text-align: center;"> <!-- Clase button con estilo para hacer los botones que necesitemos -->
         <button type="submit" class="button" onclick="window.location.href='car_ed.html';">Enviar</button>
-        <button type="button" class="button" onclick="window.location.href='confirmacionsolicitud.html';">Solicitar caracterización edáfica</button>
+        <button type="button" class="button" onclick="window.location.href='confirmacionsolicitud.html';">Solicitar
+          caracterización edáfica</button>
       </div>
 
-      
-    </form>
-
-
+    </form> <!-- Finaliza la clase form -->
 
 
 
 
     <div class="info">
+      <!-- Empieza la clase info, donde están el logo de SIS Sune y los iconos de las redes sociales -->
       <img src="../assets/IMG/logosissune.png" class="img-1" alt="Logo SIS Sune">
 
-      <div class="location">
+      <div class="location"> <!-- Empieza la clase location -->
 
         <div class="icons">
           <a href="https://wa.me/message/Q6QLO32DTIXOB1" target="_blank" rel="noopener noreferrer">
@@ -112,44 +116,47 @@
 
 
         <div class="icons">
-          <a href="https://www.instagram.com/sissunecolombia?igsh=a2JldzNwMXg2eTZl" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/sissunecolombia?igsh=a2JldzNwMXg2eTZl" target="_blank"
+            rel="noopener noreferrer">
             <img src="../assets/IMG/instagram.png" alt="Instagram Icon">
           </a>
           <p>@sissunecolombia</p>
         </div>
 
-        
+
         <div class="icons">
           <a href="https://www.facebook.com/profile.php?id=61568368243077&mibextid=ZbWKwL" target="_blank">
-              <!-- Icono de Facebook -->
-              <img src="../assets/IMG/facebook.png" alt="Facebook Icon">
+            <img src="../assets/IMG/facebook.png" alt="Facebook Icon">
           </a>
           <p>fb/sissunecolombia</p>
         </div>
-    
-    
+
+
         <div class="icons">
-        <a href="https://x.com/sissunecolombia" target="_blank">
-            <!-- Icono de Twitter -->
+          <a href="https://x.com/sissunecolombia" target="_blank">
             <img src="../assets/IMG/twitter.png" alt="Twitter Icon">
-        </a>
-        <p>x/sissunecolombia</p>
+          </a>
+          <p>x/sissunecolombia</p>
         </div>
 
-      </div>
-    </div>
-  </div>
+      </div> <!-- Finaliza la clase location -->
+    </div> <!-- Finaliza la clase info -->
+  </div> <!-- Finaliza la clase container -->
 
 
 
-  <script>
+
+
+
+  <script> // Ahora usaremos lenguaje JavaScript para hacer las validaciones de los campos
+
     // Función de validación para permitir solo números y puntos
     function validateNumberAndDot(event) {
       const input = event.target;
       const value = input.value;
       const errorDiv = document.getElementById(input.id + '-error');
-  
-      // Validación de letras y caracteres no numéricos
+
+    // Validación de letras y caracteres no numéricos
       if (/[^0-9.]/.test(value)) {
         input.value = value.replace(/[^0-9.]/g, ''); // Eliminar caracteres no numéricos
         errorDiv.textContent = "Solo se permiten números y puntos.";
@@ -158,33 +165,32 @@
         errorDiv.style.display = 'none';  // Ocultar el mensaje de error si es válido
       }
     }
-  
+
     // Validación de rango para el campo pH
     function validatePHRange(event) {
-  const input = event.target;
-  const value = parseFloat(input.value);
-  const errorDiv = document.getElementById(input.id + '-error');
-  const errorGeneralDiv = document.getElementById(input.id + '-error-general');
-  
-  // Si el valor es NaN (no un número) o está fuera del rango 0-14
-  if (isNaN(value) || value < 0 || value > 14) {
-    input.value = ''; // Resetea el valor o lo deja en blanco
-    errorDiv.style.display = 'block';
-    errorGeneralDiv.style.display = 'none'; // Desactivar el mensaje general
-  } else if (/[^0-9.]/.test(input.value)) {
-    errorDiv.style.display = 'none';
-    errorGeneralDiv.style.display = 'block'; // Mostrar el mensaje general
-  } else {
-    errorDiv.style.display = 'none';
-    errorGeneralDiv.style.display = 'none';
-  }
-}
+      const input = event.target;
+      const value = parseFloat(input.value);
+      const errorDiv = document.getElementById(input.id + '-error');
+      const errorGeneralDiv = document.getElementById(input.id + '-error-general');
 
-  
+      // Si el valor es NaN (no un número) o está fuera del rango 0-14
+      if (isNaN(value) || value < 0 || value > 14) {
+        input.value = ''; // Resetea el valor o lo deja en blanco
+        errorDiv.style.display = 'block';
+        errorGeneralDiv.style.display = 'none'; // Desactivar el mensaje general
+      } else if (/[^0-9.]/.test(input.value)) {
+        errorDiv.style.display = 'none';
+        errorGeneralDiv.style.display = 'block'; // Mostrar el mensaje general
+      } else {
+        errorDiv.style.display = 'none';
+        errorGeneralDiv.style.display = 'none';
+      }
+    }
+
     // Asignar la validación a los campos
     document.getElementById('ph').addEventListener('input', validateNumberAndDot);  // Validación de letras y caracteres no numéricos para pH
     document.getElementById('ph').addEventListener('input', validatePHRange);  // Validación de rango para pH
-  
+
     // Añadir validación de números y puntos a los otros campos
     document.getElementById('contenido_agua').addEventListener('input', validateNumberAndDot);
     document.getElementById('capa_organica').addEventListener('input', validateNumberAndDot);
@@ -198,7 +204,7 @@
         document.getElementById('textura-error').style.display = 'none';
       }
     });
-    
+
     document.getElementById('nivel_freatico').addEventListener('input', function (event) {
       if (/\d/.test(event.target.value)) {
         document.getElementById('nivel_freatico-error').style.display = 'block';
@@ -206,7 +212,7 @@
         document.getElementById('nivel_freatico-error').style.display = 'none';
       }
     });
-    
+
     document.getElementById('color').addEventListener('input', function (event) {
       if (/\d/.test(event.target.value)) {
         document.getElementById('color-error').style.display = 'block';
@@ -230,12 +236,7 @@
         document.getElementById('fauna_edafica-error').style.display = 'none';
       }
     });
-
-
-
-    
-
   </script>
-</body>
 
+</body>
 </html>
