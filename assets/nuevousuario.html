@@ -15,7 +15,7 @@
   <img class="logosis" src="./IMG/logosissune2.png" alt="Logotipo SIS Sune">
   <ul class="nav-links">
    <li><a href="../home.html">Inicio</a></li>
-   <li><a href="./info.html">Sobre Nosotros</a></li>
+   <li><a href="./usuarios.html">Regresar</a></li>
   </ul>
 </nav>
 
@@ -32,7 +32,7 @@
 <!-- Formulario de Ingreso de Usuario y descripción mvs --> 
 <section class="mission-vision-services"> 
  <div class="user-login">
-  <h2>Ingreso de Usuario</h2>
+  <h2>Registro de Usuario</h2>
   <form action="#" method="post">
   <label for="userID">ID de Usuario:</label>
   <input type="text" id="userID" name="userID" required>
@@ -41,9 +41,69 @@
   <button type="submit">Ingresar</button> </form> 
  </div>
 
+    
+<div class="user-login">
+  <h2>Registro de Usuario</h2>
+  <form action="#" method="post">
+    <label for="userID">ID de Usuario:</label>
+    <input type="text" id="userID" name="userID" required>
+    
+    <label for="userPassword">Contraseña:</label>
+    <input type="password" id="userPassword" name="userPassword" required>
+    
+    <label for="userType">Tipo de Usuario:</label>
+    <select id="userType" name="userType" required onchange="toggleEPSField()">
+      <option value="Agricultor(a)">Agricultor(a)</option>
+      <option value="Agrónom@">Agrónom@</option>
+      <option value="Biólog@">Biólog@</option>
+      <option value="Productor(a) de semillas">Productor(a) de semillas</option>
+    </select>
+    
+    <label for="fullName">Nombre Completo:</label>
+    <input type="text" id="fullName" name="fullName" required>
+    
+    <label for="birthdate">Fecha de Nacimiento:</label>
+    <input type="date" id="birthdate" name="birthdate" required>
+    
+    <label for="age">Edad:</label>
+    <input type="number" id="age" name="age" required>
+    
+    <label for="phone">Teléfono:</label>
+    <input type="tel" id="phone" name="phone" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <div id="epsField">
+      <label for="eps">EPS:</label>
+      <input type="text" id="eps" name="eps">
+    </div>
+    
+    <button type="submit">Ingresar</button>
+  </form>
+</div>
+
+<script>
+  function toggleEPSField() {
+    var userType = document.getElementById('userType').value;
+    var epsField = document.getElementById('epsField');
+    if (userType === 'Agricultor(a)') {
+      epsField.style.display = 'none';
+    } else {
+      epsField.style.display = 'block';
+    }
+  }
+  
+  // Initialize the EPS field visibility on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    toggleEPSField();
+  });
+</script>
+<!--- ------------------------------------------------------------>
+
  <div class="mvs"> 
-  <h2>Descripción de tipos de usuarios SIS Sune</h2> 
-  <p>SIS Sune integra a agricultores, agrónomos, biólogos y productores de semillas para identificar las semillas ideales a sembrar en un terreno particular.</p> 
+  <h2>Gracias por querer hacer parte de SIS Sune</h2> 
+  <p>La confirmación de creación de su usuario SIS Sune como agricultor, agrónomo, biólogo o productor de semillas, llegará a su correo.</p> 
  </div> 
  <div><img src="./IMG/post-2.png" alt="Servicio"></div>
 </section>
