@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Condiciones de cultivo</title>
+  <link rel="stylesheet" href="../CSS/solicitud_style.css" />
+  <style>
+    .error-message {
+      color: red;
+      font-size: 0.85em;
+      display: none;
+      margin-top: 0;
+      margin-bottom: 0.3em;
+      line-height: 1.2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <form class="form" id="condicionescultivoForm">
+      <h2>CONDICIONES DE CULTIVO</h2>
+
+      <p>Estimado usuario, está a un paso de completar su solicitud de consultoría de siembra.</p>
+
+      <p>
+        El sistema SIS Sune no solo considera las condiciones ambientales de su terreno, también tiene en
+        cuenta las preferencias relacionadas con las condiciones de cultivo para seleccionar las semillas más adecuadas
+        a su terreno.
+      </p>
+
+      <p> Para las condiciones de cultivo, usted dispone de dos opciones:</p>
+
+      <p> Usted puede solicitar que las condiciones de cultivo sean seleccionadas según las preferencias del sistema SIS
+        Sune. Si es así, por favor oprima el siguiente botón:</p>
+
+      <div style="text-align: center; margin-bottom: 40px;">
+        <button type="button" class="button" onclick="window.location.href='confirmsolicitudcultivo.html';">Estoy
+          abierto a las preferencias SIS Sune y finalizar solicitud</button>
+      </div>
+
+      <p>
+        En caso de querer indicarnos sus preferencias en cuanto a las condiciones de cultivo, por favor diligencie el
+        formulario que aparece a continuación. Cuando haya completado el formulario, oprima Guardar y
+        finalizar.
+      </p>
+
+      <!-- Tipo de cultivo -->
+      <label for="tipo_cultivo">Tipo de cultivo</label>
+      <input type="text" id="tipo_cultivo" name="tipo_cultivo" class="box" required
+        placeholder="Ingrese el tipo de cultivo" aria-describedby="tipo_cultivo-error" />
+      <div id="tipo_cultivo-error" class="error-message">El tipo de cultivo es obligatorio y debe tener entre 1 y 400
+        caracteres.</div>
+
+      <!-- Tiempo de cosecha -->
+      <label for="tiempo_cosecha">Tiempo de cosecha deseado (días)</label>
+      <input type="text" id="tiempo_cosecha" name="tiempo_cosecha" class="box" required
+        placeholder="Ingrese el tiempo de cosecha en días" aria-describedby="tiempo_cosecha-error" />
+      <div id="tiempo_cosecha-error" class="error-message">El tiempo de cosecha debe ser un número entre 0 y 100.</div>
+
+      <!-- Posibilidad de riego -->
+      <label for="posibilidad_riego">Posibilidad de riego (sí/no)</label>
+      <select id="posibilidad_riego" name="posibilidad_riego" class="box" required>
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option value="si">Sí</option>
+        <option value="no">No</option>
+      </select>
+
+      <!-- Tipo de riego -->
+      <label for="tipo_riego">Tipo de riego</label>
+      <input type="text" id="tipo_riego" name="tipo_riego" class="box" required placeholder="Ingrese el tipo de riego"
+        aria-describedby="tipo_riego-error" />
+      <div id="tipo_riego-error" class="error-message">El tipo de riego debe tener entre 10 y 200 caracteres.</div>
+
+      <!-- Posibilidad de manejo -->
+      <label for="posibilidad_manejo">Posibilidad de manejo (sí/no)</label>
+      <select id="posibilidad_manejo" name="posibilidad_manejo" class="box" required>
+        <option value="" disabled selected>Seleccione una opción</option>
+        <option value="si">Sí</option>
+        <option value="no">No</option>
+      </select>
+
+      <!-- Tipo de manejo -->
+      <label for="tipo_manejo">Tipo de manejo</label>
+      <input type="text" id="tipo_manejo" name="tipo_manejo" class="box" required
+        placeholder="Ingrese el tipo de manejo" aria-describedby="tipo_manejo-error" />
+      <div id="tipo_manejo-error" class="error-message">El tipo de manejo debe tener entre 1 y 400 caracteres.</div>
+
+      <div style="text-align: center;">
+        <button type="submit" class="button">Guardar y finalizar</button>
+      </div>
+
+    </form>
+
+    <div class="info">
+      <!-- Empieza la clase info, donde están el logo de SIS Sune y los iconos de las redes sociales -->
+      <img src="../assets/IMG/logosissune.png" class="img-1" alt="Logo SIS Sune">
+
+      <div class="location"> <!-- Empieza la clase location -->
+
+        <div class="icons">
+          <a href="https://wa.me/message/Q6QLO32DTIXOB1" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/IMG/whatsapp.png" alt="Whatsapp Icon">
+          </a>
+          <p>321 3568598</p>
+        </div>
+
+
+        <div class="icons">
+          <a href="mailto:sissunecolombia@gmail.com?subject=Asunto del correo&body=Escribe tu mensaje aquí">
+            <img src="../assets/IMG/gmail.png" alt="Gmail Icon">
+          </a>
+          <p>sissunecolombia@gmail.com</p>
+        </div>
+
+
+        <div class="icons">
+          <a href="https://www.instagram.com/sissunecolombia?igsh=a2JldzNwMXg2eTZl" target="_blank"
+            rel="noopener noreferrer">
+            <img src="../assets/IMG/instagram.png" alt="Instagram Icon">
+          </a>
+          <p>@sissunecolombia</p>
+        </div>
+
+
+        <div class="icons">
+          <a href="https://www.facebook.com/profile.php?id=61568368243077&mibextid=ZbWKwL" target="_blank">
+            <img src="../assets/IMG/facebook.png" alt="Facebook Icon">
+          </a>
+          <p>fb/sissunecolombia</p>
+        </div>
+
+
+        <div class="icons">
+          <a href="https://x.com/sissunecolombia" target="_blank">
+            <img src="../assets/IMG/twitter.png" alt="Twitter Icon">
+          </a>
+          <p>x/sissunecolombia</p>
+        </div>
+
+      </div> <!-- Finaliza la clase location -->
+    </div> <!-- Finaliza la clase info -->
+  </div> <!-- Finaliza la clase container -->
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('condicionescultivoForm');  // Asegúrate de que el ID sea correcto
+      const posibilidadRiego = document.getElementById('posibilidad_riego');
+      const tipoRiego = document.getElementById('tipo_riego');
+      const posibilidadManejo = document.getElementById('posibilidad_manejo');
+      const tipoManejo = document.getElementById('tipo_manejo');
+
+      // Función para habilitar/deshabilitar campos
+      function toggleField(selectElement, targetField) {
+        if (selectElement.value === 'no') {
+          targetField.value = 'No aplica';
+          targetField.disabled = true;
+        } else {
+          targetField.value = '';
+          targetField.disabled = false;
+        }
+      }
+
+      // Eventos para posibilidad de riego y manejo
+      posibilidadRiego.addEventListener('change', function () {
+        toggleField(posibilidadRiego, tipoRiego);
+      });
+
+      posibilidadManejo.addEventListener('change', function () {
+        toggleField(posibilidadManejo, tipoManejo);
+      });
+
+      // Función para manejar el envío del formulario
+      form.addEventListener('submit', function (event) {
+        // Verifica la validez del formulario
+        if (form.checkValidity()) {
+          // Redirige a la URL deseada si el formulario es válido
+          event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+          window.location.href = 'confirmsolicitudcultivo.html';  // Redirigir a la página deseada
+        } else {
+          // Prevenir el envío del formulario si hay errores
+          event.preventDefault();
+          alert('Por favor, rellene todos los campos del formulario para poder continuar.');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

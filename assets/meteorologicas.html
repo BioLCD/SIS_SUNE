@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulario condiciones meteorológicas</title>
-  <link rel="stylesheet" href="../CSS/condicionesambientales_style.css" />
+  <link rel="stylesheet" href="../CSS/solicitud_style.css" />
   <style>
     .error-message {
       color: red;
@@ -21,14 +21,26 @@
 
 <body>
   <div class="container">
-    <form class="form" id="meteorologicasForm" novalidate>
+    <form class="form" id="meteorologicasForm">
       <h2>CONDICIONES METEOROLÓGICAS DEL TERRENO</h2>
 
       <p>
-        Estimado usuario, por favor complete los siguientes campos con la información correspondiente sobre las
-        condiciones meteorológicas de su terreno. Recuerde que debe ingresar los valores promedio.
-        En caso de no conocer alguna o ninguna de las variables, puede solicitar una caracterización meteorológica.
+        Estimado usuario, para saber las condiciones meteorológicas de su terreno, puede solicitar una caracterización
+        meteorológica
       </p>
+
+      <div style="text-align: center; margin-bottom: 40px;"> <!-- Agregado el margen inferior -->
+        <button type="button" class="button" onclick="window.location.href='confirmsolicitudmeteoro.html';">Solicitar
+          caracterización meteorológica</button>
+      </div>
+
+
+      <p>
+        En caso de conocer las codiciones meteorológicas de su terreno, por favor diligencie el
+        formulario que aparece a continuación. Cuando haya completado el formulario, oprima Guardar y continuar.
+      </p>
+
+
 
       <!-- Radiación solar -->
       <label for="radiacion">Radiación solar (%)</label>
@@ -81,8 +93,6 @@
 
       <div style="text-align: center;">
         <button type="submit" class="button">Guardar y continuar</button>
-        <button type="button" class="button" onclick="window.location.href='confirmacionsolicitud.html';">Solicitar
-          caracterización meteorológica</button>
       </div>
 
     </form>

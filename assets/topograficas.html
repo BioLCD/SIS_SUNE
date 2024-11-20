@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulario condiciones topográficas</title>
-  <link rel="stylesheet" href="../CSS/condicionesambientales_style.css" />
+  <link rel="stylesheet" href="../CSS/solicitud_style.css" />
   <style>
     .error-message {
       color: red;
@@ -20,15 +20,24 @@
 
 <body>
   <div class="container">
-    <form class="form" id="topograficasForm" novalidate>
+    <form class="form" id="topograficasForm">
       <h2>CONDICIONES TOPOGRÁFICAS DEL TERRENO</h2>
 
       <p>
-        Estimado usuario, por favor complete los siguientes campos con la información correspondiente sobre las
-        condiciones topográficas de su terreno. Recuerde que debe ingresar los valores promedio.
-        En caso de no conocer alguna o ninguna de las variables, puede solicitar una caracterización topográfica.
+        Estimado usuario, para saber las condiciones topográficas de su terreno, puede solicitar una caracterización
+        topográfica.
       </p>
 
+      <div style="text-align: center; margin-bottom: 40px;"> <!-- Agregado el margen inferior -->
+        <button type="button" class="button" onclick="window.location.href='confirmsolicitudtopo.html';">Solicitar
+          caracterización topográfica</button>
+      </div>
+
+
+      <p>
+        En caso de conocer las codiciones topográficas de su terreno, por favor diligencie el
+        formulario que aparece a continuación. Cuando haya completado el formulario, oprima Guardar y continuar.
+      </p>
 
 
       <label for="departamento">Ubicación el terreno</label>
@@ -119,8 +128,6 @@
 
       <div style="text-align: center;">
         <button type="submit" class="button">Guardar y continuar</button>
-        <button type="button" class="button" onclick="window.location.href='confirmacionsolicitud.html';">Solicitar
-          caracterización topográfica</button>
       </div>
 
     </form>

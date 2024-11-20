@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Solicitar consultoría de siembra</title>
-  <link rel="stylesheet" href="../CSS/solicitarconsultoria_style.css">
+  <link rel="stylesheet" href="../CSS/solicitud_style.css">
 </head>
 
 <body>
@@ -15,29 +15,23 @@
 
       <h2>SOLICITUD DE CONSULTORÍA DE SIEMBRA</h2>
 
-      <p>Estimado usuario, la solicitud de consultoría de siembra Sune se realizará mediante cinco fases.</p>
-
-      <p>Cada una de las fases corresponde a cinco aspectos clave que el sistema Sune necesita para identificar las
-        semillas más adecuadas a cultivar en su terreno.</p>
-
-      <p>Las tres primeras fases corresponden a las condiciones ambientales de su terreno. La cuarta y quinta fase
-        corresponden a las preferencias que usted tenga acerca del cultivo y el método de obtención de las semillas.</p>
-
-      <p>Por favor presione la casilla para aceptar los términos y condiciones de SIS Sune. Luego presione el botón
-        "Continuar a primera fase Condiciones edáficas del terreno" para iniciar su solicitud</p>
+      <p>Estimado usuario, la consultoría de siembra que iniciará a continuación le permitirá saber cuales semillas son
+        las más aptas según las condiciones ambientales de su terreno. Para dar inicio a su solicitud, por favor
+        presione la casilla Acepto los términos y condiciones de SIS Sune Colombia. Luego presione el botón
+        Iniciar solicitud</p>
 
       <!-- Checkbox para Términos y Condiciones -->
 
       <div class="terms-container">
         <label for="terms">
           <input type="checkbox" id="terms" name="terms" required>
-          Acepto los <a href="#" id="openModal">términos y condiciones</a>
+          Acepto los <a href="#" id="openModal">términos y condiciones</a> de SIS Sune Colombia
         </label>
       </div>
 
 
       <div class="button-container">
-        <button type="submit" class="button">Continuar a primera fase Condiciones edáficas del tereno</button>
+        <button type="submit" class="button">Iniciar solicitud</button>
       </div>
 
     </form>
@@ -50,50 +44,50 @@
 
         <div class="icons">
           <a href="https://wa.me/message/Q6QLO32DTIXOB1" target="_blank">
-              <!-- Icono de WhatsApp -->
-              <img src="../assets/IMG/whatsapp.png" alt="Whatsapp Icon">
+            <!-- Icono de WhatsApp -->
+            <img src="../assets/IMG/whatsapp.png" alt="Whatsapp Icon">
           </a>
           <!-- Número de WhatsApp fuera del enlace -->
           <p>321 3568598</p>
-      </div>
+        </div>
 
 
-      <div class="icons">
-        <a href="mailto:sissunecolombia@gmail.com?subject=Asunto del correo&body=Escribe tu mensaje aquí">
+        <div class="icons">
+          <a href="mailto:sissunecolombia@gmail.com?subject=Asunto del correo&body=Escribe tu mensaje aquí">
             <!-- Icono de Gmail -->
             <img src="../assets/IMG/gmail.png" alt="Gmail Icon">
-        </a>
-        <!-- Dirección de Gmail fuera del enlace -->
-        <p>sissunecolombia@gmail.com</p>
-    </div>
-    
+          </a>
+          <!-- Dirección de Gmail fuera del enlace -->
+          <p>sissunecolombia@gmail.com</p>
+        </div>
 
 
-      <div class="icons">
-        <a href="https://www.instagram.com/sissunecolombia?igsh=a2JldzNwMXg2eTZl" target="_blank">
+
+        <div class="icons">
+          <a href="https://www.instagram.com/sissunecolombia?igsh=a2JldzNwMXg2eTZl" target="_blank">
             <!-- Icono de Instagram -->
             <img src="../assets/IMG/instagram.png" alt="Instagram Icon">
-        </a>
-        <p>@sissunecolombia</p>
-    </div>
+          </a>
+          <p>@sissunecolombia</p>
+        </div>
 
 
-    <div class="icons">
-      <a href="https://www.facebook.com/profile.php?id=61568368243077&mibextid=ZbWKwL" target="_blank">
-          <!-- Icono de Facebook -->
-          <img src="../assets/IMG/facebook.png" alt="Facebook Icon">
-      </a>
-      <p>fb/sissunecolombia</p>
-  </div>
+        <div class="icons">
+          <a href="https://www.facebook.com/profile.php?id=61568368243077&mibextid=ZbWKwL" target="_blank">
+            <!-- Icono de Facebook -->
+            <img src="../assets/IMG/facebook.png" alt="Facebook Icon">
+          </a>
+          <p>fb/sissunecolombia</p>
+        </div>
 
 
-  <div class="icons">
-    <a href="https://x.com/sissunecolombia" target="_blank">
-        <!-- Icono de Twitter -->
-        <img src="../assets/IMG/twitter.png" alt="Twitter Icon">
-    </a>
-    <p>x/sissunecolombia</p>
-</div>
+        <div class="icons">
+          <a href="https://x.com/sissunecolombia" target="_blank">
+            <!-- Icono de Twitter -->
+            <img src="../assets/IMG/twitter.png" alt="Twitter Icon">
+          </a>
+          <p>x/sissunecolombia</p>
+        </div>
 
 
       </div>
@@ -104,7 +98,7 @@
 
 
 
-  
+
 
   <!-- Modal para Términos y Condiciones -->
   <div id="termsModal" class="modal">
@@ -166,7 +160,7 @@
 
 
   <script> // Script para manejar el modal de Terminos y Condiciones, crear barra de progreso y validar para redireccion a siguiente pagina
-    
+
 
     // 1. Manejar modal de terminos y condiciones
     document.addEventListener("DOMContentLoaded", function () {
@@ -194,15 +188,15 @@
 
       // 3. Validar si se aceptaron los términos antes de permitir la redirección
       document.getElementById('consultoriaForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Evita el envío predeterminado del formulario
-      const termsCheckbox = document.getElementById('terms');
-      if (!termsCheckbox.checked) {
-      alert('Debes aceptar los términos y condiciones para continuar.');
-      } else {
-      window.location.href = "edaficas.html"; // Redirige a edaficas.html si los términos están aceptados
-      }
-    });
-      
+        event.preventDefault(); // Evita el envío predeterminado del formulario
+        const termsCheckbox = document.getElementById('terms');
+        if (!termsCheckbox.checked) {
+          alert('Debes aceptar los términos y condiciones para continuar.');
+        } else {
+          window.location.href = "edaficas.html"; // Redirige a edaficas.html si los términos están aceptados
+        }
+      });
+
     });
   </script>
 

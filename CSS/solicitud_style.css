@@ -28,6 +28,7 @@ body {
     width: 50%;
     display: flex;
     flex-direction: column;
+    width: auto;
 }
 
 .form h2 {
@@ -101,7 +102,7 @@ label {
     font-size: 18px;
     border-radius: 25px; /* Borde redondeado */
     border: none; /* Elimina el borde predeterminado */
-    width: 100%; /* Hacer botón responsivo, el 100% permite que se vea bien en pantallas pequeñas */
+    width: auto; /* Hacer botón responsivo, el 100% permite que se vea bien en pantallas pequeñas */
 }
 
 .info {
