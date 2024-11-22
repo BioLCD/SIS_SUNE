@@ -64,30 +64,35 @@
         aria-describedby="porosidad-error">
       <div id="porosidad-error" class="error-message">Solo se permiten números y puntos.</div>
 
+
+
       <label for="textura">Textura</label>
-      <input type="text" id="textura" name="textura" class="box" required minlength="3" maxlength="100"
+      <input type="text" id="textura" name="textura" class="box" required minlength="3" maxlength="500"
         placeholder="Ingrese la textura" aria-describedby="textura-error">
-      <div id="textura-error" class="error-message">La textura no debe contener números.</div>
+      <div id="textura-error" class="error-message">La textura no debe contener números ni exceder los 500 caracteres.
+      </div>
 
       <label for="nivel_freatico">Nivel freático</label>
-      <input type="text" id="nivel_freatico" name="nivel_freatico" class="box" required minlength="3" maxlength="100"
+      <input type="text" id="nivel_freatico" name="nivel_freatico" class="box" required minlength="3" maxlength="500"
         placeholder="Ingrese el nivel freático" aria-describedby="nivel_freatico-error">
-      <div id="nivel_freatico-error" class="error-message">El nivel freático no debe contener números.</div>
-
-      <label for="color">Color</label>
-      <input type="text" id="color" name="color" class="box" required minlength="3" maxlength="100"
-        placeholder="Ingrese el color" aria-describedby="color-error">
-      <div id="color-error" class="error-message">El color no debe contener números.</div>
+      <div id="nivel_freatico-error" class="error-message">El nivel freático no debe contener números ni exceder los 500
+        caracteres.</div>
 
       <label for="microbiota">Microbiota</label>
-      <input type="text" id="microbiota" name="microbiota" class="box" required minlength="3" maxlength="100"
+      <input type="text" id="microbiota" name="microbiota" class="box" required minlength="3" maxlength="500"
         placeholder="Ingrese la microbiota" aria-describedby="microbiota-error">
-      <div id="microbiota-error" class="error-message">La microbiota no debe contener números.</div>
+      <div id="microbiota-error" class="error-message">La microbiota no debe contener números ni exceder los 500
+        caracteres.</div>
 
       <label for="fauna_edafica">Fauna edáfica</label>
-      <input type="text" id="fauna_edafica" name="fauna_edafica" class="box" required minlength="3" maxlength="100"
+      <input type="text" id="fauna_edafica" name="fauna_edafica" class="box" required minlength="3" maxlength="500"
         placeholder="Ingrese la fauna edáfica" aria-describedby="fauna_edafica-error">
-      <div id="fauna_edafica-error" class="error-message">La fauna edáfica no debe contener números.</div>
+      <div id="fauna_edafica-error" class="error-message">La fauna edáfica no debe contener números ni exceder los 500
+        caracteres.</div>
+
+
+
+
 
       <div style="text-align: center;"> <!-- Clase button con estilo para hacer los botones que necesitemos -->
         <button type="submit" class="button">Guardar y continuar</button>
@@ -241,6 +246,30 @@
         document.getElementById('fauna_edafica-error').style.display = 'none';
       }
     });
+
+
+    // Función de validación para la longitud de los campos con límite de 500 caracteres
+    function validateMaxLength(event) {
+      const input = event.target;
+      const value = input.value;
+      const errorDiv = document.getElementById(input.id + '-error');
+
+      // Verifica si la longitud excede los 500 caracteres
+      if (value.length > 500) {
+        errorDiv.textContent = "La longitud no puede exceder los 500 caracteres.";
+        errorDiv.style.display = 'block';
+        input.value = value.substring(0, 500); // Limita la longitud a 500
+      } else {
+        errorDiv.style.display = 'none';
+      }
+    }
+
+    // Asignar la validación de longitud a los campos
+    document.getElementById('textura').addEventListener('input', validateMaxLength);
+    document.getElementById('nivel_freatico').addEventListener('input', validateMaxLength);
+    document.getElementById('microbiota').addEventListener('input', validateMaxLength);
+    document.getElementById('fauna_edafica').addEventListener('input', validateMaxLength);
+
 
 
 
