@@ -11,7 +11,7 @@
 <body>
 
   <div class="container">
-    <form class="form" id="consultoriaForm" action="ruta_del_servidor" method="POST">
+    <form class="form" id="consultoriaForm">
 
       <h2>SOLICITUD DE CONSULTORÍA DE SIEMBRA</h2>
 
@@ -25,7 +25,7 @@
       <div class="terms-container">
         <label for="terms">
           <input type="checkbox" id="terms" name="terms" required>
-          Acepto los <a href="#" id="openModal">términos y condiciones</a> de SIS Sune Colombia
+          Acepto los <a href="#" id="openModal">términos y condiciones</a> de SIS Sune
         </label>
       </div>
 
@@ -159,10 +159,13 @@
   </div>
 
 
-  <script> // Script para manejar el modal de Terminos y Condiciones, crear barra de progreso y validar para redireccion a siguiente pagina
 
 
-    // 1. Manejar modal de terminos y condiciones
+  
+
+  <script>
+
+
     document.addEventListener("DOMContentLoaded", function () {
       var modal = document.getElementById("termsModal");
       var btn = document.getElementById("openModal");
@@ -185,19 +188,44 @@
         }
       };
 
-
-      // 3. Validar si se aceptaron los términos antes de permitir la redirección
+      // Manejar el envío del formulario
       document.getElementById('consultoriaForm').addEventListener('submit', function (event) {
         event.preventDefault(); // Evita el envío predeterminado del formulario
         const termsCheckbox = document.getElementById('terms');
+
         if (!termsCheckbox.checked) {
           alert('Debes aceptar los términos y condiciones para continuar.');
-        } else {
-          window.location.href = "edaficas.html"; // Redirige a edaficas.html si los términos están aceptados
+          return;
         }
-      });
 
+        // Enviar solicitud al servidor mediante AJAX
+        fetch('crear_solicitud.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ accion: 'crear_solicitud' })
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              // Redirigir a edaficas.html si se creó la solicitud con éxito
+              window.location.href = "edaficas.html";
+            } else {
+              alert(data.message || 'Error al crear la solicitud. Inténtalo de nuevo.');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('Ocurrió un error al comunicarse con el servidor.');
+          });
+      });
     });
+
+
+
+
+
+
+
   </script>
 
 

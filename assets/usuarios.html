@@ -1,69 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Usuarios SIS Sune</title>
- <link rel="icon" href="./IMG/logosissune2.png" type="image/x-icon">
- <link rel="stylesheet" href="../CSS/usuarios_style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios SIS Sune</title>
+  <link rel="icon" href="./IMG/logosissune2.png" type="image/x-icon">
+  <link rel="stylesheet" href="../CSS/usuarios_style.css">
 </head>
 
 <body>
- <!-- Barra de navegación -->
- <nav>
-  <div class="logo">SIS Sune</div>
-  <img class="logosis" src="./IMG/logosissune2.png" alt="Logotipo SIS Sune">
-  <ul class="nav-links">
-   <li><a href="../home.html">Inicio</a></li>
-   <li><a href="./info.html">Sobre Nosotros</a></li>
-  </ul>
-</nav>
+  <!-- Barra de navegación -->
+  <nav>
+    <div class="logo">SIS Sune</div>
+    <img class="logosis" src="./IMG/logosissune2.png" alt="Logotipo SIS Sune">
+    <ul class="nav-links">
+      <li><a href="../home.html">Inicio</a></li>
+      <li><a href="./info.html">Sobre Nosotros</a></li>
+    </ul>
+  </nav>
 
-<!-- Encabezado de bienvenida -->
-<header class="header">
- <h1>¡Regístrate o ingresa como usuario existente a SIS Sune!</h1>
- <p>Conoce más de SIS Sune abajo</p>
- <img src="./IMG/logosissune2.png" alt="Logotipo SIS Sune">
- <div class="usersbutton">
- <a href="./nuevousuario.html" class="btn">¡Regístrate si no tienes usuario!</a>
- </div>
-</header>
+  <!-- Encabezado de bienvenida -->
+  <header class="header">
+    <h1>¡Regístrate o ingresa como usuario existente a SIS Sune!</h1>
+    <p>Conoce más de SIS Sune abajo</p>
+    <img src="./IMG/logosissune2.png" alt="Logotipo SIS Sune">
+    <div class="usersbutton">
+      <a href="./registro.html" class="btn">¿No tienes una cuenta? Regístrate aquí</a>
+    </div>
+  </header>
 
-<!-- Formulario de Ingreso de Usuario y descripción mvs --> 
-<section class="mission-vision-services"> 
- <div class="user-login">
-  <h2>Ingreso de Usuario</h2>
-  <form action="#" method="post">
-  <label for="userID">ID de Usuario:</label>
-  <input type="text" id="userID" name="userID" required>
-  <label for="userPassword">Contraseña:</label>
-  <input type="password" id="userPassword" name="userPassword" required>
-  <button type="submit">Ingresar</button> </form> 
-  <button type="button" onclick="saveUserInfo()">Save</button> 
-  <button type="button" onclick="retrieveUserInfo()">Retrieve</button>
- </div>
+  <!-- Formulario de Ingreso de Usuario y descripción -->
+  <section class="mission-vision-services">
+    <div class="user-login">
+      <h2>Ingreso de Usuario</h2>
+      <form action="procesar_usuario.php" method="post" id="loginForm">
+        <label for="userEmail">Correo:</label>
+        <input type="email" id="userEmail" name="userEmail" placeholder="Ingrese su correo" required
+          aria-label="Ingrese su correo">
 
- <script src="script.js"></script>
+        <label for="userPassword">Contraseña:</label>
+        <input type="password" id="userPassword" name="userPassword" placeholder="Ingrese su contraseña" required
+          aria-label="Ingrese su contraseña">
 
- <div class="mvs"> 
-  <h2>Descripción de tipos de usuarios SIS Sune</h2> 
-  <p>SIS Sune integra a agricultores, agrónomos, biólogos y productores de semillas para identificar las semillas ideales a sembrar en un terreno particular.</p> 
- </div> 
- <div><img src="./IMG/post-2.png" alt="Servicio"></div>
-</section>
+        <label for="userType">Tipo de Usuario:</label>
+        <select id="userType" name="userType" required>
+          <option value="" disabled selected>Seleccione un tipo</option>
+          <option value="Agricultor">Agricultor</option>
+          <option value="Agrónomo">Agrónomo</option>
+          <option value="Biólogo">Biólogo</option>
+          <option value="Productor de semillas">Productor de semillas</option>
+        </select>
 
-<!-- Pie de página -->
-<footer>
-<p>&copy; 2024 SIS Sume derechos reservados</p>
- <div class="social-links">
-  <a href="https://wa.me/message/Q6QLO32DTIXOB1"><img src="./IMG/whatsapp.png" alt="WhatsApp">WhatsApp</>
-  <a href="#"><img src="./IMG/gmail.png" alt="Gmail">Gmail</a>
-  <a href="https://www.instagram.com/sissunecolombia?igsh=a2JldzNwMXg2eTZl"><img src="./IMG/instagram.png" alt="Instagram">Instagram</a>
-  <a href="https://www.facebook.com/profile.php?id=61568368243077&mibextid=ZbWKwL"><img src="./IMG/facebook.png" alt="Meta">Meta</a>
-  <a href="#"><img src="./IMG/twitter.png" alt="X">X</a>
- </div>
-</footer>
+        <button type="submit">Ingresar</button>
+      </form>
+    </div>
+
+    <div class="mvs">
+      <h2>Descripción de tipos de usuarios SIS Sune</h2>
+      <p>SIS Sune integra a agricultores, agrónomos, biólogos y productores de semillas para identificar las semillas
+        ideales a sembrar en un terreno particular.</p>
+    </div>
+    <div><img src="./IMG/post-2.png" alt="Servicio"></div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2024 SIS Sune. Todos los derechos reservados.</p>
+    <div class="social-links">
+      <a href="https://wa.me/message/Q6QLO32DTIXOB1"><img src="./IMG/whatsapp.png" alt="WhatsApp">WhatsApp</a>
+      <a href="#"><img src="./IMG/gmail.png" alt="Gmail">Gmail</a>
+      <a href="https://www.instagram.com/sissunecolombia?igsh=a2JldzNwMXg2eTZl"><img src="./IMG/instagram.png"
+          alt="Instagram">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61568368243077&mibextid=ZbWKwL"><img src="./IMG/facebook.png"
+          alt="Meta">Meta</a>
+      <a href="#"><img src="./IMG/twitter.png" alt="X">X</a>
+    </div>
+  </footer>
+
 
 </body>
-</html>
 
+</html>

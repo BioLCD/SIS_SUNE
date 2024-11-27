@@ -20,7 +20,8 @@
 
 <body>
   <div class="container">
-    <form class="form" id="topograficasForm">
+    <form class="form" id="topograficasForm" form action="procesar_topograficas.php" method="post"
+      onsubmit="guardarFormulariotopograficas(event)">
       <h2>CONDICIONES TOPOGRÁFICAS DEL TERRENO</h2>
 
       <p>
@@ -29,8 +30,8 @@
       </p>
 
       <div style="text-align: center; margin-bottom: 40px;"> <!-- Agregado el margen inferior -->
-        <button type="button" class="button" onclick="window.location.href='confirmsolicitudtopo.html';">Solicitar
-          caracterización topográfica</button>
+        <button type="button" class="button" onclick="solicitarCaracterizaciontopograficas()">Solicitar caracterización
+          topográfica</button>
       </div>
 
 
@@ -186,6 +187,8 @@
     </div>
   </div>
 
+  
+
   <script>
     // Funciones de validación
     function validateNumber(event, min, max, errorDiv) {
@@ -243,13 +246,51 @@
       if (form.checkValidity()) {
         // Redirige a la URL deseada si el formulario es válido
         event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
-        window.location.href = 'topograficas.html';
+        window.location.href = 'finalizar_y_cerrar_sesion.html';
       } else {
         // Prevenir el envío del formulario si hay errores
         event.preventDefault();
         alert('Por favor, rellene todos los campos del formulario para poder continuar.');
       }
     });
+
+
+
+
+
+
+
+
+    function solicitarCaracterizaciontopograficas() {
+      // Enviar al servidor que solicitó la caracterización
+      fetch('procesar_topograficas.php', {
+        method: 'POST',
+        body: JSON.stringify({ solicitudCaracterizaciontopograficas: true }),
+        headers: { 'Content-Type': 'application/json' }
+      }).then(response => response.text())
+        .then(data => {
+          alert(data);
+          window.location.href = 'confirmsolicitudtopo.html';
+        });
+    }
+
+
+    function guardarFormulariotopograficas(event) {
+      event.preventDefault(); // Evita el comportamiento por defecto del formulario.
+      const form = document.getElementById('topograficasForm');
+      const formData = new FormData(form);
+
+      fetch('procesar_topograficas.php', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.text())
+        .then(data => {
+          alert(data); // Opcional: para depuración.
+          window.location.href = 'finalizar_y_cerrar_sesion.html'; // Redirige correctamente.
+        });
+
+    }
+
 
   </script>
 

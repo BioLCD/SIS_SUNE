@@ -20,7 +20,8 @@
 
 <body>
   <div class="container">
-    <form class="form" id="condicionescultivoForm">
+    <form class="form" id="condicionescultivoForm" form action="procesar_condicionescultivo.php" method="post"
+      onsubmit="guardarFormulariocondicionescultivo(event)">
       <h2>CONDICIONES DE CULTIVO</h2>
 
       <p>Estimado usuario, está a un paso de completar su solicitud de consultoría de siembra.</p>
@@ -37,8 +38,8 @@
         Sune. Si es así, por favor oprima el siguiente botón:</p>
 
       <div style="text-align: center; margin-bottom: 40px;">
-        <button type="button" class="button" onclick="window.location.href='confirmsolicitudcultivo.html';">Estoy
-          abierto a las preferencias SIS Sune y finalizar solicitud</button>
+        <button type="button" class="button" onclick="solicitarPreferenciasissune()">Solicitar las
+          condiciones de mi cultivo según las preferencias de SIS Sune</button>
       </div>
 
       <p>
@@ -187,6 +188,54 @@
         }
       });
     });
+
+
+
+
+
+
+
+
+
+
+
+
+    function solicitarPreferenciasissune() {
+      // Enviar al servidor que solicitó las preferencias sis sune
+      fetch('procesar_condicionescultivo.php', {
+        method: 'POST',
+        body: JSON.stringify({ solicitudPreferenciasissune: true }),
+        headers: { 'Content-Type': 'application/json' }
+      }).then(response => response.text())
+        .then(data => {
+          alert(data);
+          window.location.href = 'confirmsolicitudcultivo.html';
+        });
+    }
+
+    function guardarFormulariocondicionescultivo(event) {
+      event.preventDefault(); // Evitar redirección por defecto
+      const form = document.getElementById('condicionescultivoForm');
+      const formData = new FormData(form);
+
+      fetch('procesar_condicionescultivo.php', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.text())
+        .then(data => {
+          alert(data);
+          window.location.href = 'confirmsolicitudcultivo.html';
+        });
+    }
+
+
+
+
+
+
+
+
+
   </script>
 
 </body>

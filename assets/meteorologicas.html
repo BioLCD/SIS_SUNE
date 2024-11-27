@@ -21,7 +21,8 @@
 
 <body>
   <div class="container">
-    <form class="form" id="meteorologicasForm">
+    <form class="form" id="meteorologicasForm" form action="procesar_meteorologicas.php" method="post"
+      onsubmit="guardarFormulariometeorologicas(event)">
       <h2>CONDICIONES METEOROLÓGICAS DEL TERRENO</h2>
 
       <p>
@@ -30,7 +31,7 @@
       </p>
 
       <div style="text-align: center; margin-bottom: 40px;"> <!-- Agregado el margen inferior -->
-        <button type="button" class="button" onclick="window.location.href='confirmsolicitudmeteoro.html';">Solicitar
+        <button type="button" class="button" onclick="solicitarCaracterizacionmeteorologicas()">Solicitar
           caracterización meteorológica</button>
       </div>
 
@@ -87,12 +88,6 @@
     </form>
 
 
-
-
-
-
-
-
     <div class="info">
       <img src="../assets/IMG/logosissune.png" class="img-1" alt="Logo SIS Sune">
 
@@ -138,8 +133,8 @@
 
   </div>
 
-  <script>
 
+  <script>
 
     document.getElementById('meteorologicasForm').addEventListener('input', function (event) {
       const target = event.target;
@@ -157,7 +152,6 @@
 
 
 
-
     // Esta parte es para que el boton Enviar solo esté habilitado si TODOS los campos estan completamente rellenados
     document.getElementById('meteorologicasForm').addEventListener('submit', function (event) {
       const form = event.target;
@@ -166,13 +160,65 @@
       if (form.checkValidity()) {
         // Redirige a la URL deseada si el formulario es válido
         event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
-        window.location.href = 'topograficas.html';
+        window.location.href = 'condicionescultivo.html';
       } else {
         // Prevenir el envío del formulario si hay errores
         event.preventDefault();
         alert('Por favor, rellene todos los campos del formulario para poder continuar.');
       }
     });
+
+
+
+
+
+
+
+
+
+    function solicitarCaracterizacionmeteorologicas() {
+      // Enviar al servidor que solicitó la caracterización
+      fetch('procesar_meteorologicas.php', {
+        method: 'POST',
+        body: JSON.stringify({ solicitudCaracterizacionmeteorologicas: true }),
+        headers: { 'Content-Type': 'application/json' }
+      }).then(response => response.text())
+        .then(data => {
+          alert(data);
+          window.location.href = 'confirmsolicitudmeteoro.html';
+        });
+    }
+
+    function guardarFormulariometeorologicas(event) {
+      event.preventDefault(); // Evitar redirección por defecto
+      const form = document.getElementById('meteorologicasForm');
+      const formData = new FormData(form);
+
+      fetch('procesar_meteorologicas.php', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.text())
+        .then(data => {
+          alert(data);
+          window.location.href = 'condicionescultivo.html';
+        });
+
+        
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
 
   </script>
 </body>

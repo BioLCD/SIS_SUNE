@@ -23,7 +23,8 @@
 
 <body>
   <div class="container"> <!-- Empieza la clase container -->
-    <form class="form" id="edaficasForm"> <!-- Empieza la clase form -->
+    <form class="form" id="edaficasForm" form action="procesar_edaficas.php" method="post" onsubmit="guardarFormularioedaficas(event)">
+      <!-- Empieza la clase form -->
       <h2>CONDICIONES EDÁFICAS DEL TERRENO</h2>
 
       <p>
@@ -32,8 +33,7 @@
       </p>
 
       <div style="text-align: center; margin-bottom: 40px;"> <!-- Agregado el margen inferior -->
-        <button type="button" class="button" onclick="window.location.href='confirmsolicitudedaf.html';">Solicitar
-          caracterización edáfica</button>
+        <button type="button" class="button" onclick="solicitarCaracterizacionedaficas()">Solicitar caracterización edáfica</button>
       </div>
 
 
@@ -89,8 +89,6 @@
         placeholder="Ingrese la fauna edáfica" aria-describedby="fauna_edafica-error">
       <div id="fauna_edafica-error" class="error-message">La fauna edáfica no debe contener números ni exceder los 500
         caracteres.</div>
-
-
 
 
 
@@ -152,9 +150,6 @@
       </div> <!-- Finaliza la clase location -->
     </div> <!-- Finaliza la clase info -->
   </div> <!-- Finaliza la clase container -->
-
-
-
 
 
 
@@ -271,8 +266,6 @@
     document.getElementById('fauna_edafica').addEventListener('input', validateMaxLength);
 
 
-
-
     // Esta parte es para que el boton Enviar solo esté habilitado si TODOS los campos estan completamente rellenados
     document.getElementById('edaficasForm').addEventListener('submit', function (event) {
       const form = event.target;
@@ -288,6 +281,42 @@
         alert('Por favor, rellene todos los campos del formulario para poder continuar.');
       }
     });
+
+
+
+
+
+
+
+
+
+    function solicitarCaracterizacionedaficas() {
+      // Enviar al servidor que solicitó la caracterización
+      fetch('procesar_edaficas.php', {
+        method: 'POST',
+        body: JSON.stringify({ solicitudCaracterizacionedaficas: true }),
+        headers: { 'Content-Type': 'application/json' }
+      }).then(response => response.text())
+        .then(data => {
+          alert(data);
+          window.location.href = 'confirmsolicitudedaf.html';
+        });
+    }
+
+    function guardarFormularioedaficas(event) {
+      event.preventDefault(); // Evitar redirección por defecto
+      const form = document.getElementById('edaficasForm');
+      const formData = new FormData(form);
+
+      fetch('procesar_edaficas.php', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.text())
+        .then(data => {
+          alert(data);
+          window.location.href = 'topograficas.html';
+        });
+    }
 
 
 
