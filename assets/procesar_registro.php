@@ -13,9 +13,9 @@ if ($conn->connect_error) {
 }
 
 // Obtener datos del formulario
-$userEmail = $_POST['userEmail'];
-$userPassword = $_POST['userPassword'];
-$userType = $_POST['userType'];
+$userEmail = $_POST['userEmail'] ?? '';
+$userPassword = $_POST['userPassword'] ?? '';
+$userType = $_POST['userType'] ?? '';
 
 // Validar datos del formulario
 if (empty($userEmail) || empty($userPassword) || empty($userType)) {
@@ -39,8 +39,19 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $userEmail, $userPassword, $userType);
 
 if ($stmt->execute()) {
-    echo "Registro exitoso. Ahora puedes iniciar sesión.";
-    header("Location: usuarios.html"); // Redirigir al formulario de inicio de sesión
+    $responseMessage = "Registro exitoso. Ahora puedes iniciar sesión.";
+
+    // Verificar si la solicitud proviene de Postman
+    $isPostman = isset($_SERVER['HTTP_USER_AGENT']) && strpos(strtolower($_SERVER['HTTP_USER_AGENT']), 'postman') !== false;
+
+    if ($isPostman) {
+        // Responder con texto plano para Postman
+        echo $responseMessage;
+    } else {
+        // Redirigir en navegadores
+        header("Location: usuarios.html");
+        exit; // Asegura que no se ejecute más código después de la redirección
+    }
 } else {
     echo "Error al registrar el usuario: " . $conn->error;
 }
@@ -48,4 +59,3 @@ if ($stmt->execute()) {
 // Cerrar conexiones
 $stmt->close();
 $conn->close();
-?>
