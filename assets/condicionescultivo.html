@@ -34,12 +34,12 @@
 
       <p> Para las condiciones de cultivo, usted dispone de dos opciones:</p>
 
-      <p> Usted puede solicitar que las condiciones de cultivo sean seleccionadas según las preferencias del sistema SIS
+      <p> Usted puede optar por que las condiciones de cultivo sean seleccionadas según las preferencias del sistema SIS
         Sune. Si es así, por favor oprima el siguiente botón:</p>
 
       <div style="text-align: center; margin-bottom: 40px;">
         <button type="button" class="button" onclick="solicitarPreferenciasissune()">Solicitar las
-          condiciones de mi cultivo según las preferencias de SIS Sune</button>
+          condiciones de mi cultivo según SIS Sune</button>
       </div>
 
       <p>
@@ -95,6 +95,9 @@
 
     </form>
 
+
+
+
     <div class="info">
       <!-- Empieza la clase info, donde están el logo de SIS Sune y los iconos de las redes sociales -->
       <img src="../assets/IMG/logosissune.png" class="img-1" alt="Logo SIS Sune">
@@ -146,6 +149,10 @@
   </div> <!-- Finaliza la clase container -->
 
 
+
+
+
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.getElementById('condicionescultivoForm');  // Asegúrate de que el ID sea correcto
@@ -174,23 +181,27 @@
         toggleField(posibilidadManejo, tipoManejo);
       });
 
-      // Función para manejar el envío del formulario
-      form.addEventListener('submit', function (event) {
-        // Verifica la validez del formulario
-        if (form.checkValidity()) {
-          // Redirige a la URL deseada si el formulario es válido
-          event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
-          window.location.href = 'confirmsolicitudcultivo.html';  // Redirigir a la página deseada
-        } else {
-          // Prevenir el envío del formulario si hay errores
-          event.preventDefault();
-          alert('Por favor, rellene todos los campos del formulario para poder continuar.');
-        }
-      });
     });
 
 
 
+
+
+    // Esta parte es para que el boton Enviar solo esté habilitado si TODOS los campos estan completamente rellenados
+    document.getElementById('condicionescultivoForm').addEventListener('submit', function (event) {
+      const form = event.target;
+
+      // Verifica la validez del formulario
+      if (form.checkValidity()) {
+        // Redirige a la URL deseada si el formulario es válido
+        event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+        window.location.href = 'finalizar_y_cerrar_sesion.html';
+      } else {
+        // Prevenir el envío del formulario si hay errores
+        event.preventDefault();
+        alert('Por favor, rellene todos los campos del formulario para poder continuar.');
+      }
+    });
 
 
 
@@ -224,16 +235,9 @@
       }).then(response => response.text())
         .then(data => {
           alert(data);
-          window.location.href = 'confirmsolicitudcultivo.html';
+          window.location.href = 'finalizar_y_cerrar_sesion.html';
         });
     }
-
-
-
-
-
-
-
 
 
   </script>

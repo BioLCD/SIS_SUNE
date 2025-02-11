@@ -61,9 +61,9 @@ if ($_SERVER['CONTENT_TYPE'] === 'application/json') {
                             '$hemisferio_latitud', '$longitud', '$hemisferio_longitud', '$altitud', '$pendientes', '$area'
                         )";
     if ($conn->query($sqlTopograficas) === TRUE) {
-        echo "Datos del formulario topográfico guardados.";
+        echo "Datos topográficos guardados correctamente.";
     } else {
-        echo "Error al guardar los datos del formulario topográfico: " . $conn->error;
+        echo "Error al guardar los datos topográficos: " . $conn->error;
     }
 }
 

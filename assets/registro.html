@@ -1,31 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario</title>
     <link rel="stylesheet" href="../CSS/registro_style.css">
 </head>
+
 <body>
-    <h2>Registro de Usuario</h2>
-    <form action="procesar_registro.php" method="post">
-        <label for="userEmail">Correo:</label>
-        <input type="email" id="userEmail" name="userEmail" required placeholder="Ingrese su correo">
+    <div class="container">
 
-        <label for="userPassword">Contraseña:</label>
-        <input type="password" id="userPassword" name="userPassword" required placeholder="Ingrese su contraseña">
+        <form class="form" id="consultoriaForm" action="procesar_registro.php" method="post">
 
-        <label for="userType">Tipo de Usuario:</label>
-        <select id="userType" name="userType" required>
-            <option value="" disabled selected>Seleccione un tipo</option>
-            <option value="Agricultor">Agricultor</option>
-            <option value="Agrónomo">Agrónomo</option>
-            <option value="Biólogo">Biólogo</option>
-            <option value="Productor de semillas">Productor de semillas</option>
-        </select>
 
-        <button type="submit">Registrar</button>
-    </form>
+            <h2>Registro de usuario</h2>
+
+            <p>Estimado usuario, si no posee una sesión en SIS Sune, por favor diligencie los siguientes campos:</p>
+
+            <div class="form-group correo">
+                <label for="userEmail">Correo:</label>
+                <input type="email" id="userEmail" name="userEmail" required placeholder="Ingrese su correo">
+            </div>
+
+
+            <div class="form-group contraseña">
+                <label for="userPassword">Contraseña:</label>
+                <input type="password" id="userPassword" name="userPassword" required
+                    placeholder="Ingrese su contraseña">
+            </div>
+
+
+            <div class="form-group tipousuario">
+                <label for="userType">Tipo de Usuario:</label>
+                <select id="userType" name="userType" required>
+                    <option value="" disabled selected>Seleccione su tipo de usuario</option>
+                    <option value="Agricultor">Agricultor</option>
+                    <option value="Agrónomo">Agrónomo</option>
+                    <option value="Biólogo">Biólogo</option>
+                    <option value="Productor de semillas">Productor de semillas</option>
+                </select>
+            </div>
+
+
+
+            <button type="submit" class="button">Registrarme en SIS Sune</button>
+        </form>
+
+
+        <div class="info">
+            <img src="../assets/IMG/logosissune.png" class="img-1" alt="Logo SIS Sune">
+
+            <div class="location">
+
+                <div class="icons">
+                    <a href="https://wa.me/message/Q6QLO32DTIXOB1" target="_blank">
+                        <!-- Icono de WhatsApp -->
+                        <img src="../assets/IMG/whatsapp.png" alt="Whatsapp Icon">
+                    </a>
+                    <!-- Número de WhatsApp fuera del enlace -->
+                    <p>321 3568598</p>
+                </div>
+
+
+                <div class="icons">
+                    <a href="mailto:sissunecolombia@gmail.com?subject=Asunto del correo&body=Escribe tu mensaje aquí">
+                        <!-- Icono de Gmail -->
+                        <img src="../assets/IMG/gmail.png" alt="Gmail Icon">
+                    </a>
+                    <!-- Dirección de Gmail fuera del enlace -->
+                    <p>sissunecolombia@gmail.com</p>
+                </div>
+
+
+
+                <div class="icons">
+                    <a href="https://www.instagram.com/sissunecolombia?igsh=a2JldzNwMXg2eTZl" target="_blank">
+                        <!-- Icono de Instagram -->
+                        <img src="../assets/IMG/instagram.png" alt="Instagram Icon">
+                    </a>
+                    <p>@sissunecolombia</p>
+                </div>
+
+
+                <div class="icons">
+                    <a href="https://www.facebook.com/profile.php?id=61568368243077&mibextid=ZbWKwL" target="_blank">
+                        <!-- Icono de Facebook -->
+                        <img src="../assets/IMG/facebook.png" alt="Facebook Icon">
+                    </a>
+                    <p>fb/sissunecolombia</p>
+                </div>
+
+
+                <div class="icons">
+                    <a href="https://x.com/sissunecolombia" target="_blank">
+                        <!-- Icono de Twitter -->
+                        <img src="../assets/IMG/twitter.png" alt="Twitter Icon">
+                    </a>
+                    <p>x/sissunecolombia</p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
 </body>
-</html>
 
+</html>

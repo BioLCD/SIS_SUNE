@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formulario condiciones meteorológicas</title>
+  <title>Formulario condiciones meteorologicas</title>
   <link rel="stylesheet" href="../CSS/solicitud_style.css" />
   <style>
     .error-message {
@@ -18,7 +18,6 @@
   </style>
 </head>
 
-
 <body>
   <div class="container">
     <form class="form" id="meteorologicasForm" form action="procesar_meteorologicas.php" method="post"
@@ -27,12 +26,13 @@
 
       <p>
         Estimado usuario, para saber las condiciones meteorológicas de su terreno, puede solicitar una caracterización
-        meteorológica
+        meteorológica.
       </p>
 
       <div style="text-align: center; margin-bottom: 40px;"> <!-- Agregado el margen inferior -->
         <button type="button" class="button" onclick="solicitarCaracterizacionmeteorologicas()">Solicitar
-          caracterización meteorológica</button>
+          caracterización
+          meteorológica</button>
       </div>
 
 
@@ -42,43 +42,31 @@
       </p>
 
 
+      <label for="temperatura">Temperatura (°C)</label>
+      <input type="text" id="temperatura" name="temperatura" class="box" required
+        placeholder="Ingrese la temperatura en °C" aria-describedby="temperatura-error" />
+      <div id="temperatura-error" class="error-message">La temperatura debe estar entre -50 y 60°C.</div>
 
-      <!-- Radiación solar -->
-      <label for="radiacion">Radiación solar (%)</label>
-      <input type="text" id="radiacion" name="radiacion" class="box" required placeholder="Ingrese la radiación solar"
-        aria-describedby="radiacion-error" />
-      <div id="radiacion-error" class="error-message">La radiación debe ser un número entre 0 y 100.</div>
+      <label for="humedad_relativa">Humedad Relativa (%)</label>
+      <input type="text" id="humedad_relativa" name="humedad_relativa" class="box" required
+        placeholder="Ingrese la humedad relativa en %" aria-describedby="humedad_relativa-error" />
+      <div id="humedad_relativa-error" class="error-message">La humedad debe estar entre 0 y 100%.</div>
 
-      <!-- Nubosidad -->
-      <label for="nubosidad">Nubosidad (%)</label>
-      <input type="text" id="nubosidad" name="nubosidad" class="box" required placeholder="Ingrese la nubosidad"
-        aria-describedby="nubosidad-error" />
-      <div id="nubosidad-error" class="error-message">La nubosidad debe ser un número entre 0 y 100.</div>
+      <label for="presion_atmosferica">Presión Atmosférica (hPa)</label>
+      <input type="text" id="presion_atmosferica" name="presion_atmosferica" class="box" required
+        placeholder="Ingrese la presión en hPa" aria-describedby="presion_atmosferica-error" />
+      <div id="presion_atmosferica-error" class="error-message">La presión debe estar entre 300 y 1100 hPa.</div>
 
-      <!-- Humedad relativa -->
-      <label for="humedad">Humedad relativa (%)</label>
-      <input type="text" id="humedad" name="humedad" class="box" required placeholder="Ingrese la humedad relativa"
-        aria-describedby="humedad-error" />
-      <div id="humedad-error" class="error-message">La humedad debe ser un número entre 0 y 100.</div>
-
-      <!-- Presión atmosférica -->
-      <label for="atmosfera">Presión atmosférica (hPA)</label>
-      <input type="text" id="atmosfera" name="atmosfera" class="box" required
-        placeholder="Ingrese la presión atmosférica" aria-describedby="atmosfera-error" />
-      <div id="atmosfera-error" class="error-message">La presión atmosférica debe ser un número válido.</div>
-
-
-      <!-- Precipitación -->
       <label for="precipitacion">Precipitación (mm)</label>
       <input type="text" id="precipitacion" name="precipitacion" class="box" required
-        placeholder="Ingrese la precipitación" aria-describedby="precipitacion-error" />
-      <div id="precipitacion-error" class="error-message">La precipitación debe ser un número.</div>
+        placeholder="Ingrese la precipitación en mm" aria-describedby="precipitacion-error" />
+      <div id="precipitacion-error" class="error-message">La precipitación debe ser un número positivo.</div>
 
-      <!-- Temperatura -->
-      <label for="temperatura">Temperatura (°C)</label>
-      <input type="text" id="temperatura" name="temperatura" class="box" required placeholder="Ingrese la temperatura"
-        aria-describedby="temperatura-error" />
-      <div id="temperatura-error" class="error-message">La temperatura debe ser un número.</div>
+      <label for="radiacion_solar">Radiación Solar (W/m²)</label>
+      <input type="text" id="radiacion_solar" name="radiacion_solar" class="box" required
+        placeholder="Ingrese la radiación solar en W/m²" aria-describedby="radiacion_solar-error" />
+      <div id="radiacion_solar-error" class="error-message">La radiación solar debe ser un número positivo.</div>
+
 
 
       <div style="text-align: center;">
@@ -86,6 +74,9 @@
       </div>
 
     </form>
+
+
+
 
 
     <div class="info">
@@ -130,23 +121,65 @@
 
       </div>
     </div>
-
   </div>
 
 
+
   <script>
+    // Función de validación
+    function validateNumber(event, min, max, errorDiv) {
+      const input = event.target;
+      const value = parseFloat(input.value);
+      if (isNaN(value) || value < min || value > max) {
+        input.value = '';
+        errorDiv.style.display = 'block';
+      } else {
+        errorDiv.style.display = 'none';
+      }
+    }
 
-    document.getElementById('meteorologicasForm').addEventListener('input', function (event) {
-      const target = event.target;
+    // Asignar validación a cada campo
+    document.getElementById('temperatura').addEventListener('input', function (event) {
+      validateNumber(event, -50, 60, document.getElementById('temperatura-error'));
+    });
 
-      // Mensaje de error para campos de texto que deben ser números
-      if (target.type === 'text') {
-        const errorDiv = document.getElementById(`${target.id}-error`);
-        if (!/^\d*\.?\d*$/.test(target.value)) { // Verifica que solo sea un número
-          errorDiv.style.display = 'block'; // Mostrar mensaje de error
-        } else {
-          errorDiv.style.display = 'none'; // Ocultar mensaje de error si es válido
-        }
+    document.getElementById('humedad_relativa').addEventListener('input', function (event) {
+      validateNumber(event, 0, 100, document.getElementById('humedad_relativa-error'));
+    });
+
+    document.getElementById('presion_atmosferica').addEventListener('input', function (event) {
+      let input = event.target;
+      let value = input.value.replace(/[^0-9.]/g, ''); // Elimina cualquier carácter no numérico
+      input.value = value; // Asigna solo números y puntos
+
+      let numericValue = parseFloat(value);
+      let errorDiv = document.getElementById('presion_atmosferica-error');
+
+      if (value === '' || isNaN(numericValue) || numericValue < 300 || numericValue > 1100) {
+        errorDiv.style.display = 'block';
+      } else {
+        errorDiv.style.display = 'none';
+      }
+    });
+
+
+    document.getElementById('precipitacion').addEventListener('input', function (event) {
+      const value = event.target.value;
+      if (/[^0-9.]/.test(value)) {
+        event.target.value = value.replace(/[^0-9.]/g, '');
+        document.getElementById('precipitacion-error').style.display = 'block';
+      } else {
+        document.getElementById('precipitacion-error').style.display = 'none';
+      }
+    });
+
+    document.getElementById('radiacion_solar').addEventListener('input', function (event) {
+      const value = event.target.value;
+      if (/[^0-9.]/.test(value)) {
+        event.target.value = value.replace(/[^0-9.]/g, '');
+        document.getElementById('radiacion_solar-error').style.display = 'block';
+      } else {
+        document.getElementById('radiacion_solar-error').style.display = 'none';
       }
     });
 
@@ -174,8 +207,6 @@
 
 
 
-
-
     function solicitarCaracterizacionmeteorologicas() {
       // Enviar al servidor que solicitó la caracterización
       fetch('procesar_meteorologicas.php', {
@@ -189,8 +220,9 @@
         });
     }
 
+
     function guardarFormulariometeorologicas(event) {
-      event.preventDefault(); // Evitar redirección por defecto
+      event.preventDefault(); // Evita el comportamiento por defecto del formulario.
       const form = document.getElementById('meteorologicasForm');
       const formData = new FormData(form);
 
@@ -199,28 +231,15 @@
         body: formData
       }).then(response => response.text())
         .then(data => {
-          alert(data);
-          window.location.href = 'condicionescultivo.html';
+          alert(data); // Opcional: para depuración.
+          window.location.href = 'condicionescultivo.html'; // Redirige correctamente.
         });
-
-        
-
-
-
-
 
     }
 
 
-
-
-
-
-
-
-
-
   </script>
+
 </body>
 
 </html>

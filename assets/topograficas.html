@@ -246,7 +246,7 @@
       if (form.checkValidity()) {
         // Redirige a la URL deseada si el formulario es válido
         event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
-        window.location.href = 'finalizar_y_cerrar_sesion.html';
+        window.location.href = 'meteorologicas.html';
       } else {
         // Prevenir el envío del formulario si hay errores
         event.preventDefault();
@@ -286,7 +286,7 @@
       }).then(response => response.text())
         .then(data => {
           alert(data); // Opcional: para depuración.
-          window.location.href = 'finalizar_y_cerrar_sesion.html'; // Redirige correctamente.
+          window.location.href = 'meteorologicas.html'; // Redirige correctamente.
         });
 
     }

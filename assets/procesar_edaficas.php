@@ -55,9 +55,9 @@ if ($_SERVER['CONTENT_TYPE'] === 'application/json') {
     $sqlEdaficas = "INSERT INTO condiciones_edaficas (solicitud_id, solicitud_usuario_id, ph, contenido_agua, capa_organica, porosidad, textura, nivel_freatico, microbiota, fauna_edafica) 
                     VALUES ($solicitudId, $solicitudUsuarioId, '$ph', '$contenido_agua', '$capa_organica', '$porosidad', '$textura', '$nivel_freatico', '$microbiota', '$fauna_edafica')";
     if ($conn->query($sqlEdaficas) === TRUE) {
-        echo "Datos del formulario edáfico guardados.";
+        echo "Datos edáficos guardados correctamente.";
     } else {
-        echo "Error al guardar los datos del formulario edáfico: " . $conn->error;
+        echo "Error al guardar los datos edáficos: " . $conn->error;
     }
 }
 

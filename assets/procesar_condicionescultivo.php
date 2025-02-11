@@ -17,23 +17,26 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 $usuarioId = $_SESSION['usuario_id'];
 
-// Verificar si es una solicitud para preferencias SIS (JSON)
+// Verificar si el usuario tiene una solicitud activa
+$sqlActiva = "SELECT id, solicitud_usuario_id FROM solicitudes WHERE usuario_id = $usuarioId AND estado = 'Activa'";
+$resultActiva = $conn->query($sqlActiva);
+
+if ($resultActiva && $row = $resultActiva->fetch_assoc()) {
+    $solicitudId = $row['id'];
+    $solicitudUsuarioId = $row['solicitud_usuario_id'];
+} else {
+    die("No hay una solicitud activa. Por favor, inicie una nueva solicitud.");
+}
+
+// Verificar si es una solicitud de preferencias SIS (JSON)
 if ($_SERVER['CONTENT_TYPE'] === 'application/json') {
     $data = json_decode(file_get_contents("php://input"), true);
 
     if (isset($data['solicitudPreferenciasissune']) && $data['solicitudPreferenciasissune']) {
-        // Crear siempre una nueva solicitud
-        $sqlSolicitud = "INSERT INTO solicitudes (usuario_id) VALUES ($usuarioId)";
-        if ($conn->query($sqlSolicitud) === TRUE) {
-            $solicitudId = $conn->insert_id;
-        } else {
-            die("Error al registrar la solicitud: " . $conn->error);
-        }
-
-        // Insertar preferencias SIS Sune
-        $sqlCultivo = "INSERT INTO condiciones_cultivo (solicitud_id, preferencia_sis_sune) VALUES ($solicitudId, 1)";
+        $sqlCultivo = "INSERT INTO condiciones_cultivo (solicitud_id, solicitud_usuario_id, preferencia_sis_sune) 
+                       VALUES ($solicitudId, $solicitudUsuarioId, 1)";
         if ($conn->query($sqlCultivo) === TRUE) {
-            echo "Preferencias SIS Sune registradas con solicitud_id: $solicitudId.";
+            echo "Preferencias SIS Sune registradas.";
         } else {
             echo "Error al registrar las preferencias SIS Sune: " . $conn->error;
         }
@@ -47,24 +50,15 @@ if ($_SERVER['CONTENT_TYPE'] === 'application/json') {
     $posibilidad_manejo = $_POST['posibilidad_manejo'];
     $tipo_manejo = $_POST['tipo_manejo'];
 
-    // Crear siempre una nueva solicitud
-    $sqlSolicitud = "INSERT INTO solicitudes (usuario_id) VALUES ($usuarioId)";
-    if ($conn->query($sqlSolicitud) === TRUE) {
-        $solicitudId = $conn->insert_id;
-    } else {
-        die("Error al registrar la solicitud: " . $conn->error);
-    }
-
-    // Insertar datos en condiciones_cultivo
     $sql = "INSERT INTO condiciones_cultivo (
-                solicitud_id, tipo_cultivo, tiempo_cosecha, posibilidad_riego, tipo_riego, posibilidad_manejo, tipo_manejo
+                solicitud_id, solicitud_usuario_id, tipo_cultivo, tiempo_cosecha, posibilidad_riego, tipo_riego, posibilidad_manejo, tipo_manejo
             ) VALUES (
-                $solicitudId, '$tipo_cultivo', '$tiempo_cosecha', '$posibilidad_riego', '$tipo_riego', '$posibilidad_manejo', '$tipo_manejo'
+                $solicitudId, $solicitudUsuarioId, '$tipo_cultivo', '$tiempo_cosecha', '$posibilidad_riego', '$tipo_riego', '$posibilidad_manejo', '$tipo_manejo'
             )";
     if ($conn->query($sql) === TRUE) {
-        echo "Datos del formulario guardados correctamente con solicitud_id: $solicitudId.";
+        echo "Datos de condiciones de cultivo guardados correctamente.";
     } else {
-        echo "Error al guardar los datos del formulario: " . $conn->error;
+        echo "Error al guardar los datos de condiciones de cultivo: " . $conn->error;
     }
 }
 
