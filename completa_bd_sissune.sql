@@ -83,4 +83,3 @@ CREATE TABLE condiciones_cultivo (
     tipo_manejo VARCHAR(255),
     FOREIGN KEY (solicitud_id) REFERENCES solicitudes(id)
 );
-
